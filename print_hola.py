@@ -1,3 +1,5 @@
-print('Hola Mario Rey!')
+import os
 
-print('v2!')
+usuario = os.getlogin()
+
+print('Hola ' + usuario)
