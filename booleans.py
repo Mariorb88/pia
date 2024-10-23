@@ -1,8 +1,12 @@
-print(2 == 2)
+#Se leen dos números
+number1 = int(input("Ingresa el primer número: "))
+number2 = int(input("Ingresa el segundo número: "))
 
-number_of_lions = 3
-number_of_lionesses = 6
+# Elige el número más grande
+if number1 > number2:
+    larger_number = number1
+else:
+    larger_number = number2
 
-answer = number_of_lions >= number_of_lionesses
-
-print(answer)
+# Imprime el resultado
+print("El número más grande es:", larger_number)
