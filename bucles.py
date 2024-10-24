@@ -1,2 +1,8 @@
-for i in range(2, 8, 3):
-    print("El valor de i es actualmente", i)
+import time
+
+
+
+for i in range(1,6):
+    print(str(i) + ' Misisipi')
+    time.sleep(1)
+
