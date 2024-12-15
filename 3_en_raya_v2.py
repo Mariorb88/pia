@@ -15,9 +15,9 @@ v_inputs_validos = ('A1', 'A2', 'A3', 'B1', 'B2', 'B3', 'C1', 'C2', 'C3')
 
 
 def pinta_tablero():  # procedimiento que pinta el tablero
-    print('3 '+str(v_tablero[2]), end='\n')
-    print('2 '+str(v_tablero[1]), end='\n')
-    print('1 '+str(v_tablero[0]), end='\n')
+    print('3 ' + str(v_tablero[2]), end='\n')
+    print('2 ' + str(v_tablero[1]), end='\n')
+    print('1 ' + str(v_tablero[0]), end='\n')
     print('    a    b    c', end='\n')
     print('-------------------------------------------')
 
@@ -32,14 +32,14 @@ def asigna_coordenada(p_fila, p_columna, p_usuario) -> bool:
             v_retorno = True
         else:
             print('La coordenada ya ha sido seleccionada. Introduzca otra.')
-            v_retorno = False
     else:
         v_caracter = CARACTER_MAQUINA
         v_espacio_libre = False
         # en el caso de la máquina, si me viene la coordenada, la asigno (primer movimiento), si no, la calculo de manera aleatoria
-        if p_fila and p_columna:
-            v_tablero[p_fila][p_columna] = v_caracter
-            v_retorno = True
+        if p_fila is not None and p_columna is not None:
+            if v_tablero[p_fila][p_columna] == ' ':
+                v_tablero[p_fila][p_columna] = v_caracter
+                v_retorno = True
         else:
             while not v_espacio_libre:
                 v_fila = random.randint(0, 2)
@@ -53,17 +53,18 @@ def asigna_coordenada(p_fila, p_columna, p_usuario) -> bool:
 
 # función que comprueba si la jugada es ganadora
 def comprobar_ganador(p_caracter) -> bool:
-    if (v_tablero[0][0] == p_caracter and v_tablero[1][0] == p_caracter and v_tablero[2][0] == p_caracter) or (v_tablero[0][1] == p_caracter and v_tablero[1][1] == p_caracter and v_tablero[2][1] == p_caracter) or (v_tablero[0][2] == p_caracter and v_tablero[1][2] == p_caracter and v_tablero[2][2] == p_caracter) or (v_tablero[0][0] == p_caracter and v_tablero[0][1] == p_caracter and v_tablero[0][2] == p_caracter) or (v_tablero[1][0] == p_caracter and v_tablero[1][1] == p_caracter and v_tablero[1][2] == p_caracter) or (v_tablero[2][0] == p_caracter and v_tablero[2][1] == p_caracter and v_tablero[2][2] == p_caracter) or (v_tablero[0][2] == p_caracter and v_tablero[1][1] == p_caracter and v_tablero[2][0] == p_caracter) or (v_tablero[0][0] == p_caracter and v_tablero[1][1] == p_caracter and v_tablero[2][2] == p_caracter):
+    for i in range(3):
+        if all([v_tablero[i][j] == p_caracter for j in range(3)]) or all([v_tablero[j][i] == p_caracter for j in range(3)]):
+            return True
+    if v_tablero[0][0] == p_caracter and v_tablero[1][1] == p_caracter and v_tablero[2][2] == p_caracter:
         return True
-    else:
-        return False
+    if v_tablero[0][2] == p_caracter and v_tablero[1][1] == p_caracter and v_tablero[2][0] == p_caracter:
+        return True
+    return False
 
 # función que comprueba si el tablero está lleno
 def tablero_lleno() -> bool:
-    if v_tablero[0][0] != ' ' and v_tablero[0][1] != ' ' and v_tablero[0][2] != ' ' and v_tablero[1][0] != ' ' and v_tablero[1][1] != ' ' and v_tablero[1][2] != ' ' and v_tablero[2][0] != ' ' and v_tablero[2][1] != ' ' and v_tablero[2][2] != ' ':
-        return True
-    else:
-        return False
+    return all(v_tablero[i][j] != ' ' for i in range(3) for j in range(3))
 
 # función que realiza la jugada
 def pide_coordenada() -> bool:
