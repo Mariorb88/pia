@@ -34,21 +34,20 @@ def asigna_coordenada(p_fila, p_columna, p_usuario) -> bool:
             print('La coordenada ya ha sido seleccionada. Introduzca otra.')
     else:
         v_caracter = CARACTER_MAQUINA
-        v_espacio_libre = False
-        # en el caso de la máquina, si me viene la coordenada, la asigno (primer movimiento), si no, la calculo de manera aleatoria
         if p_fila is not None and p_columna is not None:
             if v_tablero[p_fila][p_columna] == ' ':
                 v_tablero[p_fila][p_columna] = v_caracter
                 v_retorno = True
         else:
+            # Seleccionar una coordenada aleatoria para la máquina
+            v_espacio_libre = False
             while not v_espacio_libre:
-                v_fila = random.randint(0, 2)
-                v_columna = random.randint(0, 2)
-                if v_tablero[v_fila][v_columna] == ' ':
-                    v_tablero[v_fila][v_columna] = v_caracter
-                    v_espacio_libre = True
+                fila_aleatoria = random.randint(0, 2)
+                columna_aleatoria = random.randint(0, 2)
+                if v_tablero[fila_aleatoria][columna_aleatoria] == ' ':
+                    v_tablero[fila_aleatoria][columna_aleatoria] = v_caracter
                     v_retorno = True
-
+                    v_espacio_libre = True
     return v_retorno
 
 # función que comprueba si la jugada es ganadora
