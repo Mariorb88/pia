@@ -1,0 +1,2 @@
+ver el último commit
+git log -1 --pretty=format:"%h"
