@@ -1,2 +1,7 @@
 ver el último commit
 git log -1 --pretty=format:"%h"
+
+
+Posibles preguntas
+¿En Producción tiene sentido dividir entre entrenamiento y test?
+No, en producción lo que se quiere es ejecutar el modelo con los datos nuevos.
