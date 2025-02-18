@@ -1,0 +1,13 @@
+name: t5
+channels:
+  - anaconda
+  - conda-forge
+  - defaults
+dependencies:
+  - tensorflow
+  - ipykernel
+  - numpy
+  - matplotlib
+  - nbformat
+  - nbconvert
+  - pytest
