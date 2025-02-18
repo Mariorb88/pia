@@ -97,3 +97,4 @@ pinta_tablero()
 while not v_finalizado:
     v_finalizado = pide_coordenada()
     pinta_tablero()
+    
