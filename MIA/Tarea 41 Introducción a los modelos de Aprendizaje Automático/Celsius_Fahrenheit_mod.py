@@ -5,8 +5,7 @@ import tensorflow as tf
 import numpy as np
 import random
 import matplotlib.pyplot as plt
-
-from keras.layers import Dense
+from tensorflow.keras.layers import Dense
 
 #------------------------------------------------------------------------
 # 2. Preparación de los datos
@@ -26,7 +25,6 @@ def FahrenheitError(fahrenheit):
 #      La lista Celsius es la de entrada de datos y la Fahrenheit la de salida
 #-------------------------------------------------------------------------------
 CELSIUS = np.random.randint( -150, 150, size = random.randint( 20, 1000 ) )
-#FAHRENHEIT = celsiusFahrenheit( CELSIUS )
 FAHRENHEIT = FahrenheitError( celsiusFahrenheit( CELSIUS ) )
 
 #------------------------------------------------------------------------
@@ -41,7 +39,9 @@ modelo = tf.keras.Sequential()
 #       salida = peso  * X  + bias
 #       salida = peso1 * X1 + peso2 * X2 + bias
 #-------------------------------------------------------------------------------
-modelo.add( Dense( units = 1, input_shape = [ 1 ] ) )   # Capa de entrada con 1 neurona
+modelo.add( Dense( units = 10, activation = 'relu', input_shape = [ 1 ] ) )   # Capa de entrada con 10 neuronas
+modelo.add( Dense( units = 10, activation = 'relu' ) )                         # Capa oculta con 10 neuronas
+modelo.add( Dense( units = 1 ) )                                              # Capa de salida con 1 neurona
 
 #------------------------------------------------------------------------
 # 5. Compilación del modelo
@@ -58,9 +58,9 @@ modelo.add( Dense( units = 1, input_shape = [ 1 ] ) )   # Capa de entrada con 1 
 #             - loss      medida de cuánto difieren las predicciones de los valores reales.
 #-------------------------------------------------------------------------------
 modelo.compile(
-    optimizer=tf.keras.optimizers.Adam(0.1),    # Tasa de aprendizaje
-    loss='mean_squared_error',                  # Función de pérdida para regresión
-    metrics=['mean_squared_error']              # Métrica para evaluar durante el entrenamiento
+    optimizer = tf.keras.optimizers.Adam( 0.01 ), # Tasa de aprendizaje reducida
+    loss = 'mean_squared_error',                  # Función de pérdida para regresión
+    metrics = ['mean_squared_error']              # Métrica para evaluar durante el entrenamiento
 )
 
 #------------------------------------------------------------------------
@@ -77,14 +77,13 @@ ACIERTOS = 0.90   # 90% de aciertos
 INTENTOS = 0
 
 while True:
-    historial = modelo.fit( CELSIUS, FAHRENHEIT, epochs = 50, verbose = False )
+    historial = modelo.fit( CELSIUS, FAHRENHEIT, epochs = 100, verbose = False ) # Más epochs
     INTENTOS = INTENTOS + 1
     perdida = historial.history[ 'loss' ][ -1 ]
 
     print( f"Iteración {INTENTOS} - Pérdida: {perdida}" )
     if perdida < ( 1 - ACIERTOS )/100:  # Criterio de parada
         break
-
 
 print("Modelo ya entrenado ..." )
 
@@ -129,13 +128,14 @@ plt.show()
 capa = modelo.layers[0]
 print( f"Fahrenheit = Celsius * {capa.get_weights()[0][0][0]:.4f} + {capa.get_weights()[1][0]:.4f}" )
 
-
 #------------------------------------------------------------------------
 # Predicción con un valor
 #------------------------------------------------------------------------
 print()
 print("Hagamos una predicción")
 
-celsiusPrueba = random.randint(-150, 150)
-resultado = modelo.predict(np.array([celsiusPrueba]), verbose=False)
-print(f"{celsiusPrueba}ºC son {resultado[0][0]:.4f} ºF, frente a los reales {celsiusFahrenheit(celsiusPrueba):.4f} ºF")
+# Más valores de prueba
+for i in range(5):
+    celsiusPrueba = random.randint(-150, 150)
+    resultado = modelo.predict(np.array([celsiusPrueba]), verbose=False)
+    print(f"{celsiusPrueba}ºC son {resultado[0][0]:.4f} ºF, frente a los reales {celsiusFahrenheit(celsiusPrueba):.4f} ºF")
