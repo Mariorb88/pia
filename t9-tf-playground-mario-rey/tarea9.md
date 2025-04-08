@@ -34,7 +34,27 @@ Resultados y Evaluación: análisis y comparación de los resultados.
 
 2. Clasificación:
     - Gaussian
+        Problema: En este dataset tenemos una representación de valores claramente clasificados en 2 grupos Gausianos fácilmente identificables y separables por un plano. Trabajaré con un 30% de datos destinado a test y dejaré el ruido y el número de batch con sus valores por defecto 0 % y 10.
+
+        Hiperparámetros: Al tratarse de un conjunto de datos sencillo y linealmente separable indicaré un Learning Rate de 0.001 y el algoritmo de Activación "Linear" y no voy a añadir capas ocultas por lo que tampoco habrá neuronas. Dejaré únicamente las características X1 y X2
+        Con esta configuración el modelo se entrena en muy pocas Epoch, rápido y sin error: [Prueba1](https://playground.tensorflow.org/#activation=linear&batchSize=10&dataset=gauss&regDataset=reg-plane&learningRate=0.001&regularizationRate=0&noise=0&networkShape=&seed=0.69549&showTestData=false&discretize=false&percTrainData=30&x=true&y=true&xTimesY=false&xSquared=false&ySquared=false&cosX=false&sinX=false&cosY=false&sinY=false&collectStats=false&problem=classification&initZero=false&hideText=false)
+
+        Evidentemente es un caso muy sencillo por lo que no haría falta probar con múltiples capas, neuronas u otro algoritmo, pero por experimentar he probado con el algoritmo Sigmoid con 3 capas ocultas y 6 neuronas cada una y aunque llega a entrenarse correctamente sí que tarda más: [Prueba2](https://playground.tensorflow.org/#activation=sigmoid&batchSize=10&dataset=gauss&regDataset=reg-plane&learningRate=0.001&regularizationRate=0&noise=0&networkShape=6,6,6&seed=0.12179&showTestData=false&discretize=false&percTrainData=50&x=true&y=true&xTimesY=false&xSquared=false&ySquared=false&cosX=false&sinX=false&cosY=false&sinY=false&collectStats=false&problem=classification&initZero=false&hideText=false)
+
+        Feature Engineering: Probando a añadir más características de entrada y el modelo se entrena bien. He probado a dejar la característica X1 y de esta manera nunca llega atener un error 0 ya que los valores no son separables con un único eje totalmente vertical. [Prueba3](https://playground.tensorflow.org/#activation=relu&batchSize=10&dataset=gauss&regDataset=reg-plane&learningRate=0.001&regularizationRate=0&noise=0&networkShape=2,2,2&seed=0.64335&showTestData=false&discretize=false&percTrainData=30&x=true&y=false&xTimesY=false&xSquared=false&ySquared=false&cosX=false&sinX=false&cosY=false&sinY=false&collectStats=false&problem=classification&initZero=false&hideText=false)
+
+
     - Exclusive or
+        Problema: En este dataset tenemos una representación de valores basada en la lógica XOR por lo que en este caso necesitaremos múltiples capas y neuroas al no ser linealmente separable. Trabajaré con un 30% de datos destinado a test y dejaré el ruido y el número de batch con sus valores por defecto 0 % y 10.
+
+        Hiperparámetros: En este caso usando las variables de entrada X1 y X2 he usado un learning rate 0,003 para que avance más rápido debido a la complejidad del dataset y he añadido 2 capas ocultas con 4 neuronas cada una con el algoritmo de activación ReLU. De este modo el modelo se entrena bastante rápido: [Prueba1](https://playground.tensorflow.org/#activation=relu&batchSize=10&dataset=xor&regDataset=reg-plane&learningRate=0.003&regularizationRate=0&noise=0&networkShape=4,4&seed=0.14985&showTestData=false&discretize=true&percTrainData=30&x=true&y=true&xTimesY=false&xSquared=false&ySquared=false&cosX=false&sinX=false&cosY=false&sinY=false&collectStats=false&problem=classification&initZero=false&hideText=false)
+
+        Probando con menos capas ocultas y neuronas en algunos casos llega a entrenarse bien debido a la semilla de la que parte pero se observa que no es un entrenamiento del que podamos extraer que siempore va a dar un buen resultado, sacando como conclusión que con estas features como mínimo deberíamos usar un mínimo de 2capas y entorno a 4 neuronas: [Prueba2](https://playground.tensorflow.org/#activation=relu&batchSize=10&dataset=xor&regDataset=reg-plane&learningRate=0.003&regularizationRate=0&noise=0&networkShape=2,3&seed=0.14985&showTestData=false&discretize=true&percTrainData=30&x=true&y=true&xTimesY=false&xSquared=false&ySquared=false&cosX=false&sinX=false&cosY=false&sinY=false&collectStats=false&problem=classification&initZero=false&hideText=false)
+
+        Feature Engineering: En este caso parece que si usamos como variable de entrada el X1X2 podemos entrenar el módelo sin capas intermediasrápidamente y sin error porque básicamente la entrada de datos es igual a la salida . [Prueba3](https://playground.tensorflow.org/#activation=relu&batchSize=10&dataset=xor&regDataset=reg-plane&learningRate=0.003&regularizationRate=0&noise=0&networkShape=&seed=0.14985&showTestData=false&discretize=true&percTrainData=30&x=false&y=false&xTimesY=true&xSquared=false&ySquared=false&cosX=false&sinX=false&cosY=false&sinY=false&collectStats=false&problem=classification&initZero=false&hideText=false)
+
+
+
     - Circle
     - Spiral
 
