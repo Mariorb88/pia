@@ -67,13 +67,13 @@ Resultados y Evaluación: análisis y comparación de los resultados.
 
     - Spiral
 
-        Problema: En este dataset tenemos una representación de valores en las que nos encontramos un grupo de valores gausiano rodeado por un círculo con otros valores, para entrenar este modelo necesitaremos múltiples capas y neuronas al no ser linealmente separable. Trabajaré con un 30% de datos destinado a test y dejaré el ruido y el número de batch con sus valores por defecto 0 % y 10.
+        Problema: En este dataset tenemos una representación de2 grupos de valores en espiral que parten del mismo origen pero no se cruzan. Para entrenar este modelo necesitaremos múltiples capas y neuronas al no ser linealmente separable, Posiblemente necesitaremos también trabajar con Feature Engineering. Trabajaré con un 30% de datos destinado a test y dejaré el ruido y el número de batch con sus valores por defecto 0 % y 10.
 
-        Hiperparámetros: En este caso usando las variables de entrada X1 y X2 he usado un learning rate 0,01 para que avance más rápido debido a la complejidad del dataset y he añadido 4 capas ocultas con 4 neuronas la primera y 2 la segunda con el algoritmo de activación Tanh. De este modo el modelo se entrena bastante rápido clasificando correctamente los distintos valores: [Prueba1](https://playground.tensorflow.org/#activation=tanh&batchSize=10&dataset=circle&regDataset=reg-plane&learningRate=0.01&regularizationRate=0&noise=0&networkShape=4,2&seed=0.82071&showTestData=false&discretize=true&percTrainData=30&x=true&y=true&xTimesY=false&xSquared=false&ySquared=false&cosX=false&sinX=false&cosY=false&sinY=false&collectStats=false&problem=classification&initZero=false&hideText=false)
+        Hiperparámetros: Pendiente: [Prueba1](https://playground.tensorflow.org)
 
-        Probando con menos capas ocultas y neuronas llega a entrenarse correctamente con Tanh con 1 capa oculta de 3 neuronas aunque tarda un poco más, este es el mínimo ya que si en lugar de 3 neuronas usamos 2 nunca llega reducir el error a valores aceptables: [Prueba2](https://playground.tensorflow.org/#activation=tanh&batchSize=10&dataset=circle&regDataset=reg-plane&learningRate=0.01&regularizationRate=0&noise=0&networkShape=2&seed=0.82071&showTestData=false&discretize=true&percTrainData=30&x=true&y=true&xTimesY=false&xSquared=false&ySquared=false&cosX=false&sinX=false&cosY=false&sinY=false&collectStats=false&problem=classification&initZero=false&hideText=false)
+        Probando Pendiente: [Prueba2](https://playground.tensorflow.org)
 
-        Feature Engineering: En este caso parece que si usamos como variable de entrada el X1² X2² podemos entrenar el módelo con una única capa de una neurona. [Prueba3](https://playground.tensorflow.org/#activation=tanh&batchSize=10&dataset=circle&regDataset=reg-plane&learningRate=0.03&regularizationRate=0&noise=0&networkShape=1&seed=0.28352&showTestData=false&discretize=true&percTrainData=30&x=false&y=false&xTimesY=false&xSquared=true&ySquared=true&cosX=false&sinX=false&cosY=false&sinY=false&collectStats=false&problem=classification&initZero=false&hideText=false)
+        Feature Engineering: Pendiente. [Prueba3](https://playground.tensorflow.org)
 
 
 
