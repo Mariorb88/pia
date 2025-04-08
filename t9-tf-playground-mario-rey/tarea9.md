@@ -67,13 +67,13 @@ Resultados y Evaluación: análisis y comparación de los resultados.
 
     - Spiral
 
-        Problema: En este dataset tenemos una representación de 2 grupos de valores en espiral que parten del mismo origen enlazándose pero sincruzarse. Para entrenar este modelo necesitaremos múltiples capas y neuronas al no ser linealmente separable, Posiblemente necesitaremos también trabajar con Feature Engineering para facilitar el entrenaiento. Trabajaré con un 30% de datos destinado a test y dejaré el ruido y el número de batch con sus valores por defecto 0 % y 10.
+        Problema: En este dataset tenemos una representación de 2 grupos de valores en espiral que parten del mismo origen enlazándose pero sincruzarse. Para entrenar este modelo necesitaremos múltiples capas y neuronas al no ser linealmente separable. Posiblemente necesitaremos también trabajar con Feature Engineering para facilitar el entrenaiento. Trabajaré con un 30% de datos destinado a test y dejaré el ruido y el número de batch con sus valores por defecto 0 % y 10.
 
         Hiperparámetros: En este caso usando las variables de entrada X1 y X2 he usado un learning rate 0,1 para que avance más rápido debido a la complejidad del dataset. Con las variablesde entrada X1 y X2 he conseguido que la red neuronal entrene el modelo añadiendo 3 capas ocultas de 5 neuronas cada una: [Prueba1](https://playground.tensorflow.org/#activation=relu&batchSize=10&dataset=spiral&regDataset=reg-plane&learningRate=0.1&regularizationRate=0&noise=0&networkShape=5,5,5&seed=0.92090&showTestData=false&discretize=true&percTrainData=50&x=true&y=true&xTimesY=false&xSquared=false&ySquared=false&cosX=false&sinX=false&cosY=false&sinY=false&collectStats=false&problem=classification&initZero=false&hideText=false)
 
-        Probando : [Prueba2](https://playground.tensorflow.org)
+        Probando : Realizando pruebas parece que con menos de 3 capas ocultas no consigue entrenarse un modelo con un error bajo en un tiempo asumible: [Prueba2](https://playground.tensorflow.org/#activation=relu&batchSize=10&dataset=spiral&regDataset=reg-plane&learningRate=0.1&regularizationRate=0&noise=0&networkShape=7,7&seed=0.33862&showTestData=false&discretize=true&percTrainData=30&x=true&y=true&xTimesY=false&xSquared=false&ySquared=false&cosX=false&sinX=false&cosY=false&sinY=false&collectStats=false&problem=classification&initZero=false&hideText=false)
 
-        Feature Engineering: Pendiente. [Prueba3](https://playground.tensorflow.org)
+        Feature Engineering: Añadiendo las features de sin(X1) y sin(X2) con 3 capas y entre 6 y 8 neuronas el entrenamiento se realiza más rápido y con un error bajo. [Prueba3](https://playground.tensorflow.org/#activation=relu&batchSize=10&dataset=spiral&regDataset=reg-plane&learningRate=0.1&regularizationRate=0&noise=0&networkShape=7,7,7&seed=0.33862&showTestData=false&discretize=true&percTrainData=30&x=true&y=true&xTimesY=false&xSquared=false&ySquared=false&cosX=false&sinX=true&cosY=false&sinY=true&collectStats=false&problem=classification&initZero=false&hideText=false)
 
 
 
