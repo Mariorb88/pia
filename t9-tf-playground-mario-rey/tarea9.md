@@ -74,3 +74,8 @@ Resultados y Evaluación: análisis y comparación de los resultados.
         Probando con menos capas ocultas y neuronas llega a entrenarse correctamente con Tanh con 1 capa oculta de 3 neuronas aunque tarda un poco más, este es el mínimo ya que si en lugar de 3 neuronas usamos 2 nunca llega reducir el error a valores aceptables: [Prueba2](https://playground.tensorflow.org/#activation=tanh&batchSize=10&dataset=circle&regDataset=reg-plane&learningRate=0.01&regularizationRate=0&noise=0&networkShape=2&seed=0.82071&showTestData=false&discretize=true&percTrainData=30&x=true&y=true&xTimesY=false&xSquared=false&ySquared=false&cosX=false&sinX=false&cosY=false&sinY=false&collectStats=false&problem=classification&initZero=false&hideText=false)
 
         Feature Engineering: En este caso parece que si usamos como variable de entrada el X1² X2² podemos entrenar el módelo con una única capa de una neurona. [Prueba3](https://playground.tensorflow.org/#activation=tanh&batchSize=10&dataset=circle&regDataset=reg-plane&learningRate=0.03&regularizationRate=0&noise=0&networkShape=1&seed=0.28352&showTestData=false&discretize=true&percTrainData=30&x=false&y=false&xTimesY=false&xSquared=true&ySquared=true&cosX=false&sinX=false&cosY=false&sinY=false&collectStats=false&problem=classification&initZero=false&hideText=false)
+
+
+
+
+Para la realización de este ejercicio usé como referencias el vídeo de DOTCSV [DOTCSV](https://www.youtube.com/watch?v=FVozZVUNOOA), el vídeo del canal OMES: [OMES](https://www.youtube.com/watch?v=yW69twE3wwY&t=194s) y CHATGPT para entender el significado y funcionalidad de cada uno de los parámetros y sus posibles valores.
