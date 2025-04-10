@@ -24,7 +24,7 @@ Resultados y Evaluación: análisis y comparación de los resultados.
 
     - Multi Gaussian
 
-        Problema: En este dataset tenemos una representación de valores multi gaousiana por lo que la función de activación Linear ya no será válido. Trabajaré con un 30% de datos destinado a test y dejaré el ruido y el número de batch con sus valores por defecto 0 % y 10.
+        Problema: En este dataset tenemos una representación de valores multi gausiana por lo que la función de activación Linear ya no será válido. Trabajaré con un 30% de datos destinado a test y dejaré el ruido y el número de batch con sus valores por defecto 0 % y 10.
 
         Hiperparámetros: Para este conjunto de datos usaré un Learning Rate de 0.003 Ya que seguramente necesite avanzar más rápido, asumiendo que cuanto más aumentamos el Learning Rate podemos perder estabilidad y saltarnos los mínimos locales.
         Pruebo con la función de activación Tanh, con las características de entrada X1 y X2 y con 2 capas ocultas de 4 neuronas cada una.
@@ -38,6 +38,7 @@ Resultados y Evaluación: análisis y comparación de los resultados.
 
 2. Clasificación:
     - Gaussian
+
         Problema: En este dataset tenemos una representación de valores claramente clasificados en 2 grupos Gausianos fácilmente identificables y separables por un plano. Trabajaré con un 30% de datos destinado a test y dejaré el ruido y el número de batch con sus valores por defecto 0 % y 10.
 
         Hiperparámetros: Al tratarse de un conjunto de datos sencillo y linealmente separable indicaré un Learning Rate de 0.001 y la función de activación "Linear" y no voy a añadir capas ocultas por lo que tampoco habrá neuronas. Dejaré únicamente las características X1 y X2
@@ -90,6 +91,8 @@ Resultados y Evaluación: análisis y comparación de los resultados.
         Feature Engineering: Añadiendo las features de sin(X1) y sin(X2) con 3 capas y entre 6 y 8 neuronas el entrenamiento se realiza más rápido y con un error bajo. [Prueba3](https://playground.tensorflow.org/#activation=relu&batchSize=10&dataset=spiral&regDataset=reg-plane&learningRate=0.1&regularizationRate=0&noise=0&networkShape=7,7,7&seed=0.33862&showTestData=false&discretize=true&percTrainData=30&x=true&y=true&xTimesY=false&xSquared=false&ySquared=false&cosX=false&sinX=true&cosY=false&sinY=true&collectStats=false&problem=classification&initZero=false&hideText=false)
 
 
+
+Después de trabajar buscando la optimización en cuanto capas y neuronas he podido concluir que, aunque es necesario entender y adquirir una cierta intuición sobre cuantas se deben usar, la selección de la función de activación y el entendimiento, análisis y selección de las features sigue siendo muy importante, ya que en ciertos casos aunque aumentemos capas y neuronas no va a suponer necesariamente una mejora en el entrenamiento y resolución del problema.
 
 
 Para la realización de este ejercicio usé como referencias el vídeo de DOTCSV [DOTCSV](https://www.youtube.com/watch?v=FVozZVUNOOA), el vídeo del canal OMES: [OMES](https://www.youtube.com/watch?v=yW69twE3wwY&t=194s) y CHATGPT para entender el significado y funcionalidad de cada uno de los parámetros y sus posibles valores.
