@@ -1,3 +1,7 @@
+# pip install fastapi uvicorn python-multipart pillow torch torchvision       para instalar dependencias
+# uvicorn app:app --reload                                                    para iniciar el servidor
+# http://127.0.0.1:8000/docs                                                  para testear el servicio web
+
 from fastapi import FastAPI, File, UploadFile
 from fastapi.responses import JSONResponse
 from PIL import Image
