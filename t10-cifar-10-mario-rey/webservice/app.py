@@ -1,6 +1,3 @@
-# pip install fastapi uvicorn python-multipart pillow torch torchvision
-# http://127.0.0.1:8000/docs para testear el servicio web
-
 from fastapi import FastAPI, File, UploadFile
 from fastapi.responses import JSONResponse
 from PIL import Image
@@ -8,18 +5,15 @@ import torch
 import torchvision.transforms as transforms
 import io
 
-
-from modelo import Net  # Asegúrate de tener la definición de tu red neuronal aquí
+from modelo import Net  # Tu clase definida en modelo.py
 
 app = FastAPI()
 
-# Cargar modelo
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 model = Net().to(device)
 model.load_state_dict(torch.load("cifar_net.pth", map_location=device))
 model.eval()
 
-# Transformación CIFAR-10
 transform = transforms.Compose([
     transforms.Resize((32, 32)),
     transforms.ToTensor(),
@@ -27,10 +21,8 @@ transform = transforms.Compose([
                          (0.2023, 0.1994, 0.2010))
 ])
 
-# Clases CIFAR-10
 classes = ('plane', 'car', 'bird', 'cat',
            'deer', 'dog', 'frog', 'horse', 'ship', 'truck')
-
 
 @app.post("/predict/")
 async def predict(file: UploadFile = File(...)):
@@ -44,8 +36,3 @@ async def predict(file: UploadFile = File(...)):
         label = classes[predicted.item()]
     
     return JSONResponse(content={"prediction": label})
-
-
-
-if __name__ == '__main__':
-    app.run(debug=True)
