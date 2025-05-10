@@ -38,6 +38,27 @@ log_pipeline = make_pipeline(
 default_num_pipeline = make_pipeline(SimpleImputer(strategy="median"),
                                      StandardScaler())
 
+class ClusterSimilarity(BaseEstimator, TransformerMixin):
+    def __init__(self, n_clusters=10, gamma=1.0):
+        self.n_clusters = n_clusters
+        self.gamma = gamma
+
+    def fit(self, X, y=None):
+        self.kmeans_ = KMeans(n_clusters=self.n_clusters, random_state=42)
+        self.kmeans_.fit(X)
+        self.cluster_centers_ = self.kmeans_.cluster_centers_
+        return self
+
+    def transform(self, X):
+        return rbf_kernel(X, self.cluster_centers_, gamma=self.gamma)
+
+
+cluster_simil = make_pipeline(
+    StandardScaler(),  # normaliza latitud y longitud antes del clustering
+    ClusterSimilarity(n_clusters=10, gamma=0.1)
+)
+
+
 preprocessing = ColumnTransformer([
         ("bedrooms", ratio_pipeline(), ["total_bedrooms", "total_rooms"]), # razón entre total_bedrooms y total_rooms (nueva feature)
         ("rooms_per_house", ratio_pipeline(), ["total_rooms", "households"]), # razón entre total_rooms y households (nueva feature)
