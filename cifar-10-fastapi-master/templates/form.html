@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>CIFAR-10 Image Classifier</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+    <h1>CIFAR-10 Image Classifier</h1>
+    <p>Upload an image to classify it into one of the 10 CIFAR-10 classes: airplane, automobile, bird, cat, deer, dog, frog, horse, ship, or truck.</p>
+    
+    <!--  Form to upload an image -->
+    {% if not result %}
+    <form id="upload-form" action="/predict/" enctype="multipart/form-data" method="post">
+        <div class="form-group">
+            <label for="file">Upload an image:</label>
+            <input type="file" id="file" name="file" accept="image/*" required onchange="previewImage(event)">
+        </div>
+        <div id="preview-container" style="display: none; margin-top: 10px;">
+            <p>Preview (will be resized to 32x32 for classification):</p>
+            <img id="image-preview" class="image-preview">
+        </div>
+        <button type="submit">Classify Image</button>
+    </form>
+    {% endif %}
+
+    <!--  Result of the classification -->
+    {% if result %}
+    <div class="result-container">
+        <div class="result-image">
+            <h3>Uploaded Image</h3>
+            <img src="{{ image_path }}" class="result-uploaded-image">
+            <div class="image-info">
+                <p>Filename: {{ result.filename }}</p>
+                <form action="/" method="get">
+                    <button type="submit" class="back-button">Try Another Image</button>
+                </form>
+            </div>
+        </div>
+        
+        <div class="result">
+            <div class="result-title">Classification Result:</div>
+            <div class="result-item prediction">Prediction: <span class="prediction-value">{{ result.prediction }}</span></div>
+            <div class="result-item">Confidence: {{ result.confidence }}%</div>
+        </div>
+    </div>
+    {% endif %}
+
+    <script src="/static/js/script.js"></script>
+</body>
+</html> 
