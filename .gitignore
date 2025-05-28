@@ -29,6 +29,18 @@ MANIFEST
 #excluir datasets
 *.tar.gz
 
+#excluir archivos multimedia
+*.mp4
+*.avi
+*.mov
+*.mkv
+*.flv
+*.wmv
+*.webm
+*.wav
+
+*.tar.gz
+
 # PyInstaller
 #  Usually these files are written by a python script from a template
 #  before PyInstaller builds the exe, so as to inject date/other infos into it.
