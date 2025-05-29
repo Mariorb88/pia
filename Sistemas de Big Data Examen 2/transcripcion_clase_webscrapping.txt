@@ -1,0 +1,1447 @@
+No, pues se me voy a grabar.
+Básicamente hizo un repaso un poco extenso, pero de lo que hemos visto ahora de este módulo.
+En el tema siguiente vimos ya todas las características de las bases de datos no se cuelgan y estaba recordando a un poco la base de datos de grazos que vimos y alguna otra que aparecía en la teoría.
+Como la base de datos de pareja, claro, y valor, es como una tabla relacional de dos columnas que se alojan memoria.
+Esto tenía mucho sentido para datos no persistentes como los de sesión de un usuario que quería que consulta rápidamente.
+Para esos problemas en concreto, pues está muy bien tener una solución no es secuel.
+Esto es como telease con qué es mejor Windows o Linux, porque el sistema operativo mal configurado es una base sobre, porque el sistema bien configurado es un castillo.
+Con esto pasa lo mismo.
+Ese cuele está muy bien, es maravilloso, va a seguir estando durante muchísimo tiempo, pero para otros problemas concretos es mucho más nativo, creo que es la palabra de cuadra.
+Otro tipo de bases de datos.
+Eso fue lo que vimos en el primer parcial, la base de datos.
+Y ahora entramos en la parte de programación.
+La parte de programación es delicada dar la inmensa distancia, porque esto es como andar en bici, requiere práctica, no hay mucha más historia, es dar pedales y un ritmo un poco suficientemente rápido como para que no pierras el momento y te caigas.
+Ya está, la teoría es esa, pero de nada vale si no practicas.
+Entonces, vamos a comentar una serie de pasos y veréis el código para ver cómo capturar datos desde repositorios, desde fuentes públicas.
+Y, bueno, quedaré a vuestra disposición, si queréis que veamos algún código de alguien que se la tasca y le echemos entre todos uno.
+Leí de a esto en estos días que quedan.
+Pues yo ponerme un poco a vuestra disposición, si con todo esto que hemos visto en el curso, en vuestro entorno laboral o algún proyecto que tengáis, algo se ha parecido interesante y queréis incorporarlo, solamente por probar.
+Yo me gustaría, porque ahora espionaje industrial y a mí me interesa ver qué cosas hay en el mundo y corporarlas para mí mismo y de paso, te he hecho una mano en lo que pueda aportar.
+Entonces hay un módulo aquí de adquisición de datos y otro visualización de datos, porque esto en la teoría de Big Data es un proceso que se llama ETL, de extracción de datos, de transformación de datos y el NK carga de datos un poco uso de los datos.
+La parte que vais a ver conmigo es, como dije antes, la previa a la de Alejandro.
+Alejandro es, yo voy desde recuperar los datos hasta el presente y Alejandro es desde el presente hasta el futuro, que tendencias va a haber, que predicciones van.
+Entonces, ¿os poseáis los PDFs de cómo recuperar información de Internet? Hay muchas más maneras de recuperar información, a través de PDFs, a través de Excel, a través de los logs que te puede dar una máquina industrial, lo que sea.
+Pero eso es, digamos, que son sencillas, porque ya las tienes, ya las tienes en tu ordenador, ¿no? Es un poco como ofimática, que os dejó por ahí algún enlace.
+Simplemente toquetear los datos.
+Entonces, os dejé varias.
+Vamos a ver esta de capturar datos usando una API, que yo creo que esto solo es interesante a los que no están metidos en la parte de desarrollo, los que vienen más de sistemas.
+Para que sepan un poco lo que es, ¿no? Igual es muy trivial, pero un poco primero definiendo que es una API.
+Una API es una librería, digamos, unos URL, unas direcciones de Internet, que tú, cuando haces una petición a esas direcciones, te devuelven una información.
+Y la API, digamos, que es la documentación en la que te dice si tú haces una petición a esta URL, yo te voy a devolver el tiempo que hacen bigo y si haces una petición a esta otra URL, te voy a contar el chiste del día y si haces otra petición a esta URL, pues te voy a dar, no sé, la información que sea.
+Entonces, hay un montón de APIs, buscáis en Internet, en Google, APIs, libres y te salen cientos y cientos de páginas.
+Algunas son totalmente libres, otras tienen ciertas limitaciones como un top de peticiones diarias, o lo que sea.
+Y otras son de pago que requieren que tengas una Java y en cada petición, acompañes con esa Java.
+Básicamente esto es de lo que se trata.
+Entonces, me centré aquí en CECAN, porque muchas de las administraciones públicas es la plataforma que usan.
+Ese CECAN es una plataforma que te proporciona una API común para todos y que se usa mucho las administraciones, sobre todo públicas, pero también privadas, para los datos abiertos, para publicarnos.
+Un datos abiertos concillo, digo.
+Yo utilicé este, pero seguro que encontráis un montón por muchos otros lados.
+Entonces, el concillo de Vigo proporciona un montón de datos abiertos.
+Veis que Vigo está plagado de postes con sensores y con paneles que te dicen cuánto tiempo tardas en llegar hasta plajamérica o hasta donde sea.
+Esos arcos, esas pantallas tienen unos Bluetooth que van capturando los Bluetooth de los coches, de los manos libres y los van guardando.
+Y a medida que vas pasando por otro arco, sabe por qué arco pasaste, es por qué arco estás, resta las fechas, resta los tiempos y hace una media del tiempo que se tarda desde un punto hasta tu punto y eso se va actualizando.
+Pues esos datos están disponibles, no? No el grano fino de los Bluetooth, pero siglas las estadísticas, pero hay muchos otros.
+Entonces, ¿qué lo utilicé? Yo creo que era movilidad.
+Sí, este, un dato en tiempo real de la ocupación de los parquings de la ciudad.
+Entonces, bueno, aquí en la información, esto al final es un JSON.
+Es un JSON de este tipo en el que te da la fecha, esto se acualiza cada tres minutos, que es que es.
+1851, 1850, yo creo que eran cada tres minutos y te dice el nombre del parque, la titulongito, el ID, cuantas plazas libres tiene, total, la ocupación, te da un montón de datos cada tres horas, cada tres minutos.
+Yo solamente con esto, es ideal, ya se puede hacer un montón de cosas.
+Nosotros podíamos capturar esos datos, yo tengo una máquina para ir encendida que está todo rato capturando.
+Yo tengo estos datos, pues si alguien quiere hacer alguna gráfica o tenerlos por curiosidad y si los pasos sin ningún problema, tener un dataset un poco grande y preparar una práctica chula, pues ya desde el próximo año con los datos de este año.
+Pero bueno, que si alguien la quiere adelante, tengo un dataset de parquín, otro dataset de congestión del tráfico, otro dataset del tiempo y algún lo otra cosa.
+Le eres mezclar los datos.
+Bueno, pues la API del catalogo CK es muy sencilla, es muy fácilmente reconocible y tiene aquí una serie de, bueno, pues en el aces habituales a los catalogos disponibles.
+Y dentro del catalogo te permite indicar una, una categoría, un catalogo, un concreto y entonces te da todos los datos de este masoci tenía, yo creo que no lo sabías cadado.
+Bueno, es algo como, como esto, cuando tú te descargas en CKAM, esto es lo que los quería enseñar, me quedan esto, hay alguna vez que tienes que leer terminal y ver qué hay, ¿no? Pero en principio, cuando tú te descargas un catalogo en CKAM para ver qué cosas hay disponibles, pues verás una lista muy grande, ¿no? De verdad es una lista muy grande, está un poco más.
+Bueno, está dejando un poco, un poco más, pero bueno, uno de los campos que vienen las categorías llene un documento por cada categoría que ofrece ese catalogo de datos abiertos.
+Y dentro de esa categoría hay un campo que son más resorces, los recursos y ahí te viene la forma en la que se ofrece en esos datos, que puede ser un archivo JSON, que puede ser un archivo Excel, que puede ser una dirección de internet, pues ser otra dirección a la que tengas que ir donde está ese documento, pues me gustaría, pero no me lo dejar por alguna razón que no conozco.
+Vamos a ver, es una raíz en el que hay un documento por cada tipo de fichero que te muestra, me igual lo mejoré en internet.
+Conciende de vigo, pero el gobierno de España también tiene datos abiertos, algo de datos, datos, vale, pues por ejemplo, esto sería uno de los recursos que aparecerían en MSE JSON, ¿no? Por aquí, esto que hay aquí, tu desatización de los servicios de atención al lo que sea, esto te va a venir en los archivos, uno de los recursos es un CSE Web y otro de los recursos es un XLs.
+Ahí montó, PDF, un HTML, un JSON, XML, hay muchos más aquí, ¿qué tipo de cincero soy aquí? Bueno, fijaros el montónazo de recursos en los que se os puede ofrecer información, un montón, muchos tipos de muchos aplicaciones distintas.
+Entonces, una vez localizas este campo en trasión de la RAIL y empezaría a saber de documento en documento, ¿cuál te interesa? Aquí lo que tienes que buscar es el formato en el que está, que te lo dirá.
+Lo dirán algún momento, formato, formato en el que está, un JSON me interesa y si te interesa en algún momento te lo querrás descargar.
+O usted trapa por aquí la dirección, aquí está, Google, esta es la dirección que te interesa.
+Aquí es donde harás el request y te descargarás este archivo.
+Si fuera otro formato, un HTML, este para el Google Erdo, lo que se os ocurra, la idea es la misma.
+Te vas al catalogo, localizas el catalogo que pincelesa.
+Este justo el decoce yo digo, no mantiene los metadatos bien actualizados.
+Esto es la frecuencia de actualización, aquí en teoría, segundos, minutos, no favor bien.
+Días, cada día, esto según el metadato este se refrescaría cada día, se cargaría tantos nuevos cada día y nos ha sido 3 minutos.
+No todos los datos son correctos, pero los de el recurso, eso sí sabemos que son correctos.
+Localizas el catalogo que te interesa, te vas a recursos, analizas cada uno de los documentos de los recursos, localizando el tipo de datos que te quieras descargar y te lo descargas.
+No tiene mucho más, aquí hay un código, que lo vamos a ver así muy por encima.
+La URL, esta URL, la saque de aquí, vale.
+Aquí es una de la API de CECAN, realmente la saque.
+Esto es adaptado a los datos del concedimiento.
+Lo que sí hice fue averiguar el IDE, digamos, de el dataset que a mí me interesaba, que era la ecotráfica de los Parkinson's en tiempo real.
+El código, entonces, el recos que hice, la petición que hice internet, como ir a un navegador y escribirlo, lo ves en el navegado, esto es que mandas una petición gay para descargarte esa página y te pájas el contenido de esa página que, casualmente, es un JSON, ¿no? Entonces, le pasamos la URL y le pasamos como parámetros, que esto lo podíamos ver escrito como aparece en la dirección del navegador, con la interrogación, barra, no lo que sea.
+IDE igual a TEGYON PARKING, que real, vale, entonces, bueno, así un poco fake y de ponerla, pero realmente poniendo la URL con todos los parámetros hacia piñón, lo bien estábamos.
+Bueno, pues con este comando, con request, que es la librería que utilizamos en Python para hacer peticiones a la web, nos descargamos el HTML, que en este caso es un JSON.
+Lo pasamos por un JSON para formatearlo, entonces, después lo único que vamos haciendo es los datos del JSON.
+Me voy a este campo, siempre te van a venir como dos campos, un campo éxito, como que la consulta se ha hecho bien, el típico 200 que te vienen y después el JSON y aquí es donde busco los recursos.
+Voy recorriendo los recursos quedándome con la URL y finalmente lo que, eh, y finalmente lo que hago es volver a hacer otro recuerdo de la URL en concreto.
+En concreto, en estos datos de los parámetros, la URL no cambia nunca, no cambia nunca, en cambio, en los datos de HTML, sí hay cambios.
+Entonces, si tienes que hacer, por ejemplo, ¿quieres el tiempo en vivo, o justo el tiempo en vivo, no, pero otros consultas sí, pero imagínate.
+¿Quieres buscar el tiempo en vivo, entonces tienes que hacer una petición al API con el código de Vigo y te devuelve la URL a la que tienes que consultar, la que está en documento estático, digamos, donde te descargas la temperatura de Vigo, los datos de Vigo.
+Pusto eso sí que es igual, pero otras páginas, esa URL segunda que te da, donde están los datos finales, sí que puede ir cambiando.
+Entonces, es de buenas prácticas, eh, hacerlo esto en dos fases, no, primero buscar en el catálogo, donde están los datos que finalmente me quiero descargar y descargar.
+Pero como veis, el código es bastante sencillo, ¿no? Un recuerdo por ahí para averiguar el catálogo, recorrer los recursos para localizar la información que te interesa y finalmente descargar.
+No, digamos que es lo más por todo, cero práctico, yo iría ya a fuego a la URL que me quiero descargar algo, recuerdo y ya me la descargo, pero bueno, esto para que veáis el paso y podéis ir de ferro, yo estoy viendo que va pasando en cada uno.
+Aquí me lo descargué, finalmente lo guardo como un JSON para quedarme, lo que es este de aquí, vale, esto es lo como vira descargado, que son las lecturas de, de los páginas de Vigo en este momento, vale.
+Y aquí, 14, esto fue la semana pasada, vale, pues la pino tiene mucho más, solo interesa la práctica, ¿no? Tienes que documentaros, ¿a qué URL tenéis que hacer las peticiones? Hacéis un recuerdo y analizáis los datos como si fuera un, en este caso un JSON y descargaris.
+Vale, más cosas.
+Vale, la pino, si hay una cosa, el web es Crapin, es Crapin es una técnica rascado de la web que viene a decirnos que lo que podemos hacer es navegar por la web y esos datos que nos interesa.
+Y ahora, vamos a capturarlos o usarlos en nuestro programa para lo que necesiten, ¿no? Entonces, ¿qué vamos a ver? Vamos a ver, Vietiful Sup y Selenio, que sirven para cosas distintas.
+Primero vamos a ver Vietiful Sup, no es la mejor, pero si es de las más sencillas, pues una un poco mejor que tiene muchas más opciones, por ejemplo, es Crapin, es una librería, mucho más potente para muchas más cosas, pero también requiere de cosas sencillas, pues tener un código, un pelín más complico, un pelín más complico.
+Y a mí lo único que me interesa es que se sepa que desde la web puedes capturar datos.
+Entonces, creo que tenía algo por aquí, a ver.
+Entonces, el mismo código que está en el TV.
+Vamos a ver esto.
+Bueno, en este ejemplo que us pushe aquí lo que trato de descargar es la temperatura que hacen digo ahora mismo.
+Entonces, creo, ¿no? ¿Cómo hacemos esto? Esto es muy sencillo de hacer, pero requiere de tener un pequeño conocimiento de HTML, muy pequeño, muy sencillo.
+Yo creo que incluso el que no lo tenga en estas pincelas que vamos a dar ahora funciona perfectamente.
+Las páginas web que nosotros vemos están, digamos, escritas, asterisco asterisco, en un lenguaje que se llama HTML.
+¿Qué consiste en una especie de XML en el que hay unas etiquetas que se abre con un nombre y se cierra con ese nombre precedido de una vaga? Son unas etiquetas que están así entre puntas de flecha y hay una etiqueta, por ejemplo, title o, por ejemplo, p de trapárrafo o, bueno, hay un montón.
+Entonces, estas etiquetas se abren, por ejemplo, la vez para poner en negrita, hay una etiqueta p que se abre, tú pones el texto que te da la gana, ese texto está en la negrita y una vez con la barra 7 nunca me acuerdo con eso.
+Entonces, digamos que delimita el ámbito de aplicación y se pondría en negrita lo que tú tuvieras entre esas dos etiquetas.
+Esto es la esencia y sigue siendo así.
+Lo demás es que el HTML que vemos ahora es muy no complejo porque en esencia, o sea, en esencia es sencillo, es lo mismo.
+Es buscar la etiqueta que se abris en cierre y todo lo que hay en medio, pues está afectado.
+Pero hay mucho código.
+Hasta las páginas más sencillas son muy, muy, muy, muy rebuscadas.
+¿Cómo vemos ese código? Si código lo podemos ver porque hacemos un recuesto y nos descargamos la página, entonces tenemos el HTML ahí.
+O desde los navegadores hay un inspeccionar todos los navegadores tienen un inspeccionario, una tecla rápida que no se cualena, es 10, es francesa, es que sea alguna lesa, depende del navegador.
+Y.
+
+
+Vale, y acabas viendo el código.
+Y, normalmente, pizza por una etiqueta HTML y sin pizza por una etiqueta HTML debería acabar por un HTML que se cierra.
+Y abajo lo tenemos.
+Y en medio hay un millón de cosas.
+Entonces, cuando empiezas a ver el HTML, pues el HTML, después hay una parte de la cabeza y una parte de cuerpo.
+La cabeza es, digamos, los metadatos, el título de la página, bueno, formación así un poco de metadatos y el cuerpo es directamente la página.
+Y a partir de ahí, un montón de etiquetas que hay que ver son muy sencillas y se va construyendo la página.
+Nosotros para utilizar Beautiful Soup, que es lo que vamos a utilizar para capturar el dato que nos interesa, tenemos que decirle de alguna manera que datos nos interesa, que parte de la página nos interesa.
+Y eso es lo tenemos que decir haciendo referencia a las etiquetas HTML.
+Así, hay que decirse.
+Entonces, hay por aquí un inspector que pienso que es este en cada navegador es distinto, en el safari, es como una diana, en el resto son así.
+Que tú lo marcas y te vienes por la marca, es como un interruptor.
+Y después navegas por la página web y te va localizando eso, es donde tienes el dato, en qué etiqueta está localizada.
+Entonces, podría tomar este 18 de aquí, podría tomar este 18 de aquí, al mejor mientras en la calidad de la aire y podría tomar este de aquí.
+Vamos a suponer que me gusta este 18.
+Entonces, lo selecciono y automáticamente me he llevado el etiqueta donde está ese dato.
+Aquí lo que es una etiqueta de spam, que se abre, se haurá aquí, tiene un montón de parámetros dentro, aquí acaba la etiqueta, aquí.
+Sobre lo que lo veis fatal, pero bueno, en tuyo que HTML es medianamente conocido para todos.
+Y aquí no améntestas la etiqueta spam, donde solamente se cierra, ya aquí las etiquetas de cierre no tienen parámetros.
+Y en medio está el 18 grados que es lo que se muestra aquí.
+Esto es un modifico, me dejas 20 grados.
+Si esto lo modifico aquí, se ve aquí, el local, esto no es trácorba internet, esto es solo la página que se descargó del servidor, ahora la tengo en mi ordenador, que es la que se está mostrando en el navegador, la estoy editando en mi ordenador para que se ve.
+Entonces, como le digo, a useful sub, que quiero este spam y no cualquiera de los otros, aquí hay otro, aquí hay otro, aquí hay otro, hay un montón de etiquetas spam.
+Como le indico a useful sub, el programa Python que voy a hacer, que quiero en concreto eso.
+Bueno, pues eso requiere una fase de investigación, no hay ningún truco, hay que ver la página, recorrerla y ver qué cosas tienen en cómo, o qué cosa hace única a esta etiqueta.
+En este caso, esta página es muy de agradecer porque tiene aquí una etiqueta class, con un texto aquí que hace única solamente en esta página, esta etiqueta tiene usa esta clase.
+Podemos usar un montón, podemos usar ideas, podemos usar clase, podemos usar alguna característica de CSS, podemos usar un montón de alternativas que nos da HTML para ser capaz de especificar qué etiquetas queremos.
+Oye, si esa página web está tan, no sé si mal, escrita, pero bueno, que es imposible distinguir esa etiqueta de otras.
+Entonces, no te queda más remedio que utilizar alguna herramienta, como por ejemplo, X-Path, en la que tú no le das los datos de una etiqueta concreta, sino que le das el recorrido por la rama, por el dúm del HTML, etiqueta HTML, después Body, después la que sea, después la que sea, después la que sea, toda esta etiqueta que iba viendo desde aquí, después del HTML, después del 4dip, después del 4dip, abre la tabla, después de la tabla, BTA, TR, octavo, después del TR, octavo, BTA, segunda, todo lo que tengas que hacer, eso es el X-Path.
+No sé cómo polar el ejemplo, como una expresión regular, la que tienes que definir cómo se maché.
+No hay truco para esto, simplemente es inspeccionar el código y ver, hay algunas páginas que son muy fríenly para estas cosas, por ejemplo, esta, que este dato es muy fácil de localizar y es único, y hay otras páginas que son más, que no se dejan, que no se dejan, por ejemplo, páginas que no se dejan, Amazon, ¿por qué no se dejan Amazon? Porque Amazon quiere que el cliente vaya a la página web, porque de paso que compra le puede poner las sugerencias de compra y le puede decir otros clientes también compraron esto, te estás perdiendo, y el único toto que solo va a comprar esto, mejor mira también esto, en cambio, si tienes un programa que te descarga ese precio o te hace eso, estás perdiendo notráfico porque estás haciendo tráfico también, pero estás perdiendo, le estás haciendo Amazon perder posibilidades, probabilidades, no sé, de que alguien haga alguna compra compulsiva más grande.
+Entonces Amazon y en general todas las tiendas online son maliciosas en este sentido, que cambian las clases, que cambian las etiquetas, le ponen a toda la misma, le ponen muchas estrategias, meten mowoyón de javascript para que la página que tú te descargas, esté prácticamente en blanco y se genere con el javascript que se ejecuta en tu ordenador, una vez que la página está descargada, entonces es un vio.
+ool.
+u, una página vacía, que después se va ir llenando, pero vio.
+ool.
+u, una página vacía.
+Entonces hay muchas estrategias que utiliza Amazon, que te das online en general o páginas que prefieren que sea un humano el que esté viendo, para que no funcione vio.
+ool.
+u y cualquier otro.
+Pero vamos que en general es es muy accesible y podéis tener un montón de páginas.
+Yo, durante mucho tiempo de ofimática y hacíamos algo parecido, algo parecido con la página de los terías y apuestas del estado, que hay unas una sección de estadísticas y salen de este año, de lo que llevamos este año, cuantas veces salió el dos, cuantas veces el tres, cuantas veces salió cuatro, hace cuán es lo que se puede hacer.
+Hace cuanto tiempo nos salió el 31 y bueno, un montón de estadísticas que eran interesantes y da para hacer algunas gráficas graciosas, nunca tocó nada, yo sigo trabajando, pero la ilusión no se petican.
+Bueno, pues vamos a ver el código, el código es muy muy sencillito, tenemos que descargar la librería beauty.
+ool.
+u, lo hacéis con un pipi.
+tall o un conda.
+nstall, lo que queráis.
+Y la importamos en nuestro proyecto y también tenemos que importar recuest que la librería Python para hacer peticiones a internet que ya vimos antes.
+Esta es la página en la que acabamos de ver y lo primero que hago es me la descargo, me la traigo a esta variable, la variable de respuesta.
+Y me quedo solo, bueno, cuando yo hago un get, viene un documento JSON en el que hay un campo que me dice 200, ok, 200 es un código de que ha ido todo bien, pero a mí no me interesa el 200, también me interesa el contenido de la página.
+Entonces me quedo con el contenido de la HTML y ahora es cuando entra beauty.
+ool.
+u, básicamente tengo que inicializar aquí la clase de beauty.
+ool.
+u, quiciendo leque, ve utilizar un traductor de HTML, porque beauty.
+ool.
+u también gestiona cualquier lenguaje de marca.
+Es un XML de cualquiera de una máquina industrial, pues te lo puedes gestionar.
+En este caso es HTML, ya conocen las etiquetas, entonces le decimos que utilice un traductor de HTML y le decimos donde tenemos el HTML que nos sacamos de escala.
+Y a partir de ahí entramos plenamente en el dominio de beauty.
+ool.
+u.
+Es muy sencillo en la documentación, básicamente os hablo de dos herramientas, una es fine que te busca una etiqueta, una, te busca la etiqueta, en este caso, la etiqueta con el nombre, con el.
+
+
+Bueno, la etiqueta spam, una etiqueta de tipo spam, que en concreto tenga esta clase.
+Esta clase me la copie del inspector, analicé toda la página y digo, mira, esta clase solo, solo única y exclusivamente, será en este.
+
+
+en esta etiqueta que es la que a mí me interesa perfecto.
+Este fine me busca la, realmente me busca la primera etiqueta que coincide con esto, subir a más, sólo me devolvería la primera.
+Y después tenemos, aparte de un fine, tenemos un fine poll, que hace exactamente lo mismo, le dices que etiqueta y que tiene en común y te devuelve una rai con todas las apariciones de ese etiqueta.
+Después el estúlque tiene que gestionar el como recorrerles a rai y elegir el que tú, el que haci de interés.
+Entonces, básicamente con beautiful soup lo que vamos a hacer es utilizar un fine si solo queremos uno, el primero que encontremos, de esa etiqueta y eso que no, que la diferencia.
+Esto vamos a hacer más rai.
+Y el fine poll si queremos que nos dé una rai, básicamente esa es la diferencia.
+Beautiful Soup se encargará de recorrer todo el HTML buscando esa etiqueta que coincida y devolvíéndome lo que hay entre su etiqueta de abrir y su etiqueta de cerra.
+Alguien dirá, pero solo se hace yo, que Python hay un montón de funciones para texto que me buscaría tal posible que puedes hacer tú.
+No hay ningún problema, pero Beautiful Soup ya está hecho y probado.
+Te evitas este problema.
+Bueno, una vez que ya lo has encontrado, esta etiqueta, este trozo de texto, este trozo de lo que haya entre estas etiquetas te lo devuelve en esta variante.
+Y en esta variable sí que accedes al texto, que en este caso es el 18 grados, lo que ponía de 18 grados.
+Cosas que me interesan aquí, si os fijaste y se la página de.
+
+
+Me haya cambiado.
+Si os fijaste y se la página, esto que nos devuelve aquí, que está aquí, el 17 con el simbolito este de grados, esto es un string, esto es un texto.
+Dentro del proceso ETL que comentamos antes de extraer los datos, que es lo que estamos haciendo ahora, ha hecho seguir a un fase de transformación.
+Es una fase importante en el sentido de que hasta que los datos no estén adaptados a nuestra lógica, no valen de nada, porque yo este 17 grados no lo puedo sumar con nada, ni puedo hallar la media de nada.
+Este 17 grados afectó a los prácticos, es como si pusiera San Día.
+Yo no puedo hallar la media entre San Día y patata y melón, no hay una media de sus sus sus sus un string.
+Entonces, hay una etapa de transformación, aquí es donde tú, mediante código, en este caso Python o el que tú quieras, tienes que adaptar este texto a lo que sea.
+Estos son grados tencios, le tienes que quitar ese simbolito, lo tienes que convertir ante lo, hablar de címales, en esta página te pondré la 17 con hace en algún momento.
+No lo sé, hay que preparar el código para todos estos casos, esto es la etapa de transformación.
+No hay un manual, no hay una guía, no hay un paso a paso de que tienes que revisar para transformar estos datos, porque todo depende de la lógica con la que tú uses los datos.
+Si quieres hallar la media, si quieres ver la temperatura máxima, la temperatura mínima, pues tendrás que adaptar los datos.
+Por ejemplo, para la temperatura máxima, yo solo puedo tratar como un string perfectamente, no, para, es un string que puedo ordenar afabiticamente y caja, no sé las temperaturas negativas, no sé el menos, ¿dónde me lo pondría la verdad? No lo sé, ya no lo contemplo.
+Pero habría que transformar, ¿vale? Este 17, este 17, a lo mejor lo quiero en Fahrenheit, por lo que sea, pues tendré que aplicarle transformaciones más o menos complejas.
+Y todo esto hay que hacerlo en el código, ya me lo traído.
+Y, a ver, que hago aquí, ¿vale? Las dos van a ser que tengo de mostrar en beautiful soup, ya me he traído el contenido de la etiqueta y ahora puedo utilizar como si fuera un JSON, ¿vale? Le digo el campo que quiero ver, el campo que quiero ver y me lo muestra, o directamente puedo utilizar el método Get que me proporciona beautiful soup, ¿vale? El método Get del contenido de la etiqueta, le digo que quiero ver y me lo muestra, ¿vale? Es muy sencillo.
+¿O entras como si fuera un documento? Si más, ¿vale? Le ponés la clave aquí entre este tipo texto, la clave tiene que ser siempre tipo texto, o utiliza su grita, y es exactamente lo mismo.
+¿Quién ejemplo 2? Déjame el cabir aquí.
+Digo, mira, final, es lo que os comentaba antes, ¿vale? ¿A esto era? Sí.
+Esto era para esta parte de aquí, abajo.
+Esta parte de aquí es una tabla, es una tabla.
+Voy a verla.
+
+
+Es una tabla, aquí está la etiqueta de una tabla, no creo que lo veáis ahí, pero es table y dentro de la tabla podemos distinguir entre cabeceras y cuerpo, y dentro del cuerpo, esto es el depo, filas, ¿no? Vamos a tener un TR de table robo, como que será, ¿no? En el que definimos la primera fila, y dentro de la primera fila tenemos varios tantos TDS como cellas, tenga esa fila.
+Así, así, fijáis, voy pasando el ratón por ahí y se va corriendo.
+Hay más cellas de las que se ve aquí, aquí está los cinco, seis días siguientes de la semana, pero aun te muestra, están ocultos, pero te muestran los datos siguientes, los que no se ve.
+Tan ahí, no ocultos, están, la página no se ve.
+Bueno, pues se ve que me quise descargar los datos de esta tabla, entonces las analicé y me quise descargar todos los datos, todas las etiquetas, no solo la primera, sino todas, y con eso lo que conseguieron, y esta ray en Python lo recorro muy fácil, la propiedad, la que se puede recorrer muy fácil, entonces con este foro, para cada uno de los elementos de etiquetas, creo que hay la marcelda, algo que sea.
+Bueno, pues dentro de esa etiqueta hay un montón más de etiquetas, porque el código HTML como veis es durillo, fijaros, dentro de este TDS hay una imagen, hay un número, visquen varias cosas dentro de esta etiqueta, esta es la etiqueta, perdón, esta es la celda y dentro de la celda tenemos una imagen, una etiqueta y podría haber más cosas, algo mejor.
+Entonces aquí en el código, aquí tengo las celdas, y ahora lo que voy a hacer es dentro de cada celda voy a solo buscar la su etiqueta digamos que me interese, en este caso, de aquí que tiene la temperatura, la de la semana, la fecha, temperatura máxima y temperatura mínima, que viene todos aca de aquí.
+En este caso, la fecha, la temperatura máxima y temperatura mínima, esto es lo de el bol, ahora lo vemos.
+En esta celda, esta compuesta por un montón de cosas, a mí nos mientes en ese montón de cosas, solo mientes en el hoy que veis aquí.
+Aquí, vamos a ver si me deja.
+Es que dentro de este HTML de la cabeza de la cabeza, de el jéber, hay un montón de cosas, un montón de cosas y a mí solo mientes en esa, esta aquí, que está dentro de un montón más de etiqueta.
+Esto es de ahí, para los de fron, que disfruten aquí como cochinillos.
+Pero es feo, bajo el punto de vista es feo y requiere de analizar la página y verla.
+Pero el código, en principio es sencillo, o sea, una vez tienes la estructura de la página que te la has visto, el recorrer va a ser sencillo, y simplemente tienes que ir buscando, pues esto, max, temperatura máxima.
+Esto será porque.
+
+
+Aquí está, vale, aquí está la clase que está buscando.
+Vale, entonces, Vietiful Sub realmente no tiene nada porque de todo lo que estamos buscando, lo hemos restringido prácticamente a un método.
+Un método, si me apuras mucho, que es el método, fine, método fine le dices qué tipo de etiqueta quieres y qué característica tiene, vale.
+En este caso estamos viendo la clase, pero hay otros parámetros por los que se puede buscar idea, por algún dato CSS, por lo que sea, por un montón.
+Creo que vienen la documentación y si no se busca la documentación oficial de Vietiful Sub, pero muy sencillo, una etiqueta y alguna característica propia.
+Y te devuelve los datos y contenido de ese etiqueta, si es un contenido y atribial, ya es sencillo, ya lo puedes usar o transformar, o puede ser que dentro de ese contenido, a una haya un montón más de etiquetas y tengas que filtrar un poquito más, suya depende de la página.
+Y ya está, con eso podéis cualquier página en la que podéis acceder, pues ya podéis usar todos los datos que encontréis en ella, ya sé sentido, es sencillo.
+Eso es con Vietiful Sub, el fine como mucho un fine all para obtener el array de las etiquetas y recorreglos y ya está, no más.
+Después transformar los datos, eso sí, que es una forma, si es necesario.
+Vale, ¿qué pasa con las páginas que están detrás de un formulario? Bueno, el mejor tiene un formulario con varios desplegables, los que tienes que elegir el mes, el año y darla un botón, vendiar y entonces es cuando te devuelve la página con los resultados.
+O lo mejor es una página que es como nuestro aula virtual que está detrás de un login, tienes que poner tu usuario y tu contraseña, detrás en la página y entonces lo puedes ver.
+Si tú intentas hacer un request a una página, sin haberte autenticado, pues te va a salir más, te va a salir un error, no te van a salir los datos, porque no te puedes saltar la autenticación.
+Entonces para eso tenemos, para eso y para más cosas, tenemos otra herramienta que se llama Selenin.
+Vamos a verla, eso que también tenía.
+
+
+Aquí en Selenium.
+
+
+¿Qué es Selenium? Selenium es otra librería de Python también muy utilizada, que lo que nos hace es generar un navegador virtual.
+Bueno muy virtual, no es porque realmente lo tienes que tener instalado.
+Yo aquí por ejemplo estoy utilizando Chrome.
+Si en este ordenador, no sé si tengo Chrome, no sé si en este ordenador no tuviera instalado Chrome, esto no me vale de nada.
+Esto es un driver, solamente es un programita que hace peticiones al navegador, abre, vete a esta página, pretocé de, actualízate lo que será.
+Entonces, se utilizaremos Selenium cuando queramos interactuar con el navegador.
+Yo por ejemplo, sin interesa descargarme algún dato del aula virtual, antes de utilizar Vietiful Sup para descargarme esos datos, lo que tengo que hacer es abrir un navegador, entrar en el aula virtual, bloquearme, no, para mí usuaré mi contraseña, ir al módulo curso que sea, abrir la unidad y llegar hasta los datos.
+Y una vez estén los datos, es entonces cuando paso a Vietiful Sup y ahí es donde utilizo su potencia.
+Siempre que utilizar Selenium no, porque en la página del tiempo de vigo no me hizo falta utilizar Selenium porque la voz es pública, pero en otras ocasiones sí es necesario, porque quieres datos de un foro y quiere decir siempre a la última página o a la primera página o ver cuantas páginas tiene eso requiere de interactuar con el navegador.
+Entonces, tendremos que descargarnos Selenium y inicializar el driver.
+Hay varias maneras de inicializar el driver, le puedes pasar, lo puedes instalar y le puedes dar la ruta donde está el driver del navegador que quieres usar.
+Están los navegadores, los motores de los navegadores conocidos.
+Está el Chrome, está el Gecko que es el de Firefox, está el Edge, está Safari y debe quedar un vestigio del Internet Explore.
+Pero vamos a que están los cuatro grandes, que todos los fork que hay, preif es Chrome, creo.
+No lo recuerdo, creo que sí.
+Todos los navegadores, así en general, que conocamos al final son forques de algunos de estos motores.
+Con estos cuatro motores tenemos básicamente cualquier navegador.
+Y podemos manipular el navegador a nuestro gusto, todas las cosas que puedan manipular el navegador, pues mediante Selenium lo podemos hacer.
+Para utilizar Selenium, nos tenemos que importar con un pip o con un conda, la librería Selenium y también deberíamos descargarnos esta el WebDriverManagher, otra librería aparte, la misma familia, juntas, para que descargarla aparte.
+La ventaja de utilizar el WebDriverManagher es que no tenemos que poner la URL del driver, que ya es como así un poco técnico.
+Hay que poner una línea como esta, en la que tú inicializas una variable driver en este caso utilizando un driver en este caso de Chrome.
+Y con este método de Insta, lo que estás haciendo es decirle al WebDriverManagher, que si está instalado que te lo busquen tu ordenador local, en tu.
+
+
+En Biden, en tu ámbito, en tu entorno, y si no está instalado que lo vaya a buscar a internet, lo descargue, lo configure y lo ponga a tu disposición.
+Entonces, se encarga, él solo se encarga de todo, el install está by.
+Nada, tengo aquí una URL, que es la de nuestra web del aula virtual para logarnos.
+Y lo único que hago es una llamada Al Driver, si, jaro, que aquí no hay un recueste, hay un GET, pero no es un recueste.
+Estoy haciendo la llamada a través de este navegador.
+Este navegador, virtual real, es como un intermediario, entre un navegador, una ventanita de nuestro navegador, y lo que nosotros le queremos decir.
+Este es un código ultra sencillo, casi hay más librerías que cosas hace.
+Pero esto sería el primer paso, inicializar el driver y a partir de ahí usar.
+Me voy a tomar la chuleta a la página oficial de Selenio, Documentation, web driver, Interaction Navigation.
+Esto es la documentación de Selenio, es muy sencillo.
+Jaro, aquí está el GET que hemos utilizado del driver, el web driver, hemos abierto un navegador.
+Y le estamos diciendo que vaya a esta página, no tiene nada, esto ya lo hemos visto.
+Más cosas que vamos a ver, aquí en Element, Element Finder.
+Aquí tenemos dos cosas que son las muchísimas, una es Fine Element y otra es el plural que estará por aquí abajo.
+Fine Element en plural, le deas la misma, con Fine Element te va a buscar la etiqueta que tú le digas y con Fine Element te va a buscar, te va a volver una rave con todas las apariciones de las etiquetas que le digas.
+Aquí es igualito a Beautiful So.
+Llegamos que Selenio incluye una parte de Beautiful So.
+Sería suficiente para los casos más sencillos y solo tienes que utilizar, entonces Selenio.
+Para saber cómo buscas, porque fijaros que aquí estoy buscando todas las etiquetas, todos los elementos, que en este caso estoy buscando por la clase Tomates.
+¿Cómo se cómo buscar? Tengo por ahí la chuleta, lo que todos me gusta.
+Aquí están todas las cosas por las que puedo buscar, que coinciden con las de Beautiful So.
+Puedo buscar por el nombre de la clase, por algo de CSS, por el ID, por el nombre y por más cosas, por el texto que haya dentro del lace o parte del texto y finalmente por el X-pad, toda la ruta desde el GED, hasta el elemento que quieras buscar.
+Hasta aquí es un poco como Beautiful So.
+Pero también incluye cosas que tienen que ver con el navegador, por ejemplo, aquí, interacciones.
+¿Cuál es el que tienes? ¿Cuál es el que tienes? ¿Te buscando el clic? El otro pecelement, aquí es el elemento, aquí es el que está.
+Bueno, son poquitas, pero muy sencillas, tenemos un clic.
+Yo puedo localizar una etiqueta botón y hacer clic en él.
+Hasta ahora en CSS muchas veces, en HTML, utilizamos el submit para enviar un fomular.
+Ahora también puedo utilizar su submit o también puedo localizar el botón y darle clic, hacer clic en el botón.
+O puedo localizar un desplegable y darle clic para que se despliegue y pueda acceder a las opciones que hay.
+Y también puedo enviar teclas, ¿vale? ¿Puedo escribir, como si fuera una cadena, si lo calizo un cuadro de texto y el vio texto? O puedo enviar teclas especiales como el tabulador flecha para arriba, flecha para abajo, ¿no? Poden enviar teclas especiales.
+Sí, en la versión nueva está acá en la 4, ya metieron porque los desplegables no acabo de funcionar bien.
+Era un poco rollo, había que hacer clic, había que elegir la opción, era un poco rollo.
+Entonces aquí creo una clase solo para ellos.
+Vamos a ver, ¿vamos a driver? ¿Vamos a driver? ¿Suport? ¿Fiches? ¿Vas a la lista? ¿Vas a driver? ¿Vas a driver? Lo he dicho, localizamos un desplegable, ¿vale? Esto es lo que hacen en esta línea con un HTML que viene aquí arriba, de ejemplo.
+Y inicializamos una clase c, y con esa clase c, lo que podemos hacer es listar las opciones que hay, mostrar todas, elegir una de ellas por valor o posición o el texto o el texto.
+Seleccionar, seleccionar, bueno, código ahí, a los enseños que los pica.
+Vamos a ir a la prueba.
+Aquí tenemos un código un poquito más grande, lo tengo aquí, con montón de slips para que me de tiempo a probarlo, ¿no? Para que lo veáis.
+Bueno, nada muy sencillo.
+Aquí estoy utilizando driver de Chrome, pero, a ver, los que aquí os pongo, como sería con el queco driver de Firefox, que sería exacta muy igual.
+A ver, los que aquí el único cambio es de Chrome a Firefox y el nombre del driver, pero en esencia es lo mismo.
+Me descargo la página web, estás la del login del laudable virtual con un get, pero un get de request, un get del web driver, ¿no? Estoy diciendo al navegador que abre esta página web, lo pongo a ir a dormir dos segundos y después lo calizo, una etiqueta que se llama user mail.
+Quiero salir de aquí.
+Bueno, esta sería la página, entonces, hablo para inspeccionar.
+Y este campo que es el que me interesa a mí, ve aquí un montón de cosas, veo I.
+.
+User mail.
+De User mail, el campo típico, aquí en la contraseña.
+Y de PASGO, son los ídios únicos en esta página, el User para uno y el PASGO para el otro, está en la página controlada.
+Y de la página, el texto, cuyo nombre pone User mail y el texto, perdón la etiqueta cuyo nombre pone el PASGO.
+Estruyendo un FINE LEM, con lo cual estoy buscando solo la primera aparición que en este caso es la única.
+Y las estoy guardando en estas dos variables.
+Digamos que en estas dos variables está guardado ese cachito de etiqueta que tenía ahí marcada en el inspector.
+Ahora cojo la etiqueta de usuario, que era el cuadro de texto y aquí le envío las teclas, Javillán, que es mi logo.
+Y después, a contraseña, que es el otro cuadro de texto, en la contraseña, le envío la contraseña.
+Y por último, aquí lo hago un poco mezclado para que veis que no tiene importancia ninguna, localiza el elemento de login button, el de enviar y le dé a click.
+Esto lo podría haber hecho de 20 maneras, porque vosotros sabes que si escribís la contraseña y le da ese intro, también funciona.
+Entonces, podría haber escrito una contraseña y mandarle un nante clospecial de intro a la caja de la contraseña.
+Un montón de deciones.
+Y por último, deciermos si estos son las ejecutas y de spacito.
+Si, es una ejecuta de spacito, porque lo voy a ejecutar yo de spacito.
+De puramos que esto es súper importante, yo que no soy buen programador, la habilidad de programar, veo que es muy importante.
+Otros profes, veo los examenes de otros profes, que los alumnos se caminan en el código así, como buscando la solución mágica y muchas veces tan sencillo como ir paso por paso, paso por paso.
+No le puse el.
+
+
+Entonces, empieza aquí.
+Ya está el driver inicializado, entonces ya en algún lado tengo un navegador funcionando.
+Ahora, abro la página.
+Este es el navegador, el Chrome que me abierto mi programa.
+Ahora estoy en el punto de 2002, 2002.
+Lo calizo el elemento con nombre user name, no pasa nada, esto me lo guardan no variable, no hay nada.
+Lo calizo la etiqueta de la contraseña, la guardan no variable.
+Y ahora sí que lo voy a ver, fijaros, no hay nada escrito aquí, y ahora al enviarle las teclas, de un pasito y se ha escrito en estos que interactuando con el navegador.
+Espe los cinco segundos, con los tres cuatro cinco, y ahora envío la contraseña, pasito.
+Me la pondrá aquí, le doy, y ahí está pasito oculto, no? Lo otro cinco, los tres cuatro cinco, y aquí hago todo, todo seguido, lo calizo el botón y a ese botón le llamo con el método clic, que sería el de enviar.
+Y evidentemente esa no es mi contraseña, entonces me va a dar un incorrecto.
+Pero puedo ir viendo, puedo ir depurando, que se está haciendo en cada caso.
+Cinco segundos y se cierran los navegadores, sin más historias.
+Es un código muy sencillito, lo objetivo de ese leño es ser capaz de entrar a una página, simplemente con un usuario contra la sede.
+Con esto sería más que suficiente.
+Aquí un Google, vamos a ver que Google.
+
+
+No sé por qué lo llamé Google, seguro que en su momento tenía sentido.
+Esto hace exactamente lo mismo, lo único, cambié algún orden para que veáis que no es que no hay que hacerlo todo de la misma manera.
+Aquí por ejemplo, en el anterior lo hice al estilo programador Senio, que en un comando, en una línea hace 27 cosas, y aquí lo hice en modo profe de profe.
+Esto es horrible, seguramente, para los que programáis, yo lo sé, disculpas.
+Pero es altamente iráctico, ¿no? Entonces, ¿quí lo que dice fue, se su inicializar el drive con esto abre un navegador, cargas una página, la que tú le digas aquí, y después buscas un elemento con el id de username, lo guardas en esta variable, y en esta misma variable envías tu texto, que aquí estoy haciendo bonito, y lo estoy poniendo con unas constantes que ya defino aquí arriba, para que mi programeta esté bonito, ordenado y presentable.
+Lo mismo con la contraseña, la localizo, y lo envío la contraseña, y lo mismo con el botón, lo localizo, y después hago clic.
+Los dos códigos, tanto el que he enseñado antes, como este da ahora, hacen exactamente lo mismo, y ningún no está ni mejor ni peor que otro, simplemente para que veáis que se pueden hacer las cosas de muchas maneras.
+Y tengo, por aquí también, un par de ejemplos desplegable, concreto, ¿no? Hay que ir a una página, una estética de ejemplos, según un chage PT.
+Pues es una página de pruebas con un desplegable, con varios valores.
+Entonces, fijáis lo que he hecho yo, ha sido hacer clic, lo que haremos todos, hacer clic en el desplegable, y después me he movido con el ratón, pero sabéis que nos podemos mover con las flechas también.
+Bueno, pues es muy fácil también de traducir, estoy utilizando un Chrome como un navegador, inicializo el driver y le digo que me abra esta página.
+Después le digo que me busque el elemento drop down, esto de drop down, porque lo sé, pues me tuve que venir aquí, abrir el inspector, seleccionar esto, y ver qué pone y de drop down, que es el único en la página que lo pone, no paga nada.
+Y dáctica preparada para esto, y es la única aparición de este IV.
+Entonces, le digo que me localice la primera, en este caso única aparición de este elemento, y que ahora clic en el, hasta ahora nada nuevo en el horizonte.
+Y ahora, bueno, si conocéis HTML, sabéis que los desplegables son, pues, una de las estructuras un poco más complejas, en las que dentro de cada desplegable hay tantas etiquetas opciones tenga.
+Entonces, lo que hago aquí es un, porque lo tengo repeating, vale, vale, que hace por por ahora.
+Cojo el elemento del desplegable, solo es el elemento, recordaros que cuando yo hacía un fine elemento, lo que me devolvía, esto era la parte de dentro de esas etiquetas, no.
+Teniendo el selector, tengo el selector, y de entretener unas iride opciones como la tabla, tabla que empieza a tabla final, y de entreteno todas las filas, las columnas, todas las cosas.
+Vale, pues aquí lo que estoy haciendo es, dentro del selector, que me busque todos los elementos con la etiqueta opción, que es cada una de las líneas que me muestra.
+Tengo aquí comentada esta opción, o sea, esta línea, porque fijaros la subtileza, aquí estoy buscando en driver, driver, esto de aquí, me estaría buscando en toda la página.
+Si yo tuviera varios, varios, varios selectores, varios selectores, aquí me aparecerían las opciones de todos ellos.
+Yo no quiero las opciones de todos ellos, yo quiero solo las opciones de mi desplegable.
+No sé, para los desarrolladores, esto estarán aburriéndose mortalmente y a los grupos de sistemas también, pero, si las utilizan muy, muy pequeña, pero importante, esto sería el código correcto, que sabemos que va a funcionar 100% de los casos, elegido el selector que me interesa y aquí estoy viendo sus opciones.
+Y esto es una opción, está de aquí arriba, que tengo que comentar, es una opción que funciona en esta página, porque solo hay un selector.
+Las opciones que me aparezcan, son las opciones de ese selector, pero no está garantizado que funcionen cualquier otra página en la que haya varios selectores, un formulario de inscripción, ya solo en la fecha en nacimiento y sexo y provincia en la que vives por ahí y varios selectores.
+Ojito con esto, porque es un error detectable, un error típico de sabe, un error, lo sentiéndolo, pero que sí, nos queda en el vídeo, lo píjalo.
+Lo dicho, este código está bien, porque me muestra las opciones de ese selector, este código no siempre está bien, porque me muestra todas las opciones del documento, y aquí el único cambio es este drop down y este driver, donde estoy sacándolo los elementos.
+Bueno, y finalmente, cuando tengo las opciones, fijaros que es una RAI, opciones es una RAI, porque estoy utilizando FIMELEMENT, me voy al índice 2, 0, 1, 2 y hago click en el.
+Esto sería, digamos, la opción antigua, la opción tradicional.
+La opción nueva es esta desplegable en el que ya utilizamos la clase SELEMENT, que os mostré hace un momento, no va desde la versión 4, es de esta versión.
+Entonces, la idea es exactamente la misma, localizo el desplegable, inicializo una clase, una instancia de un objeto de la clase SELEM, como la etiqueta está que localizado, y a partir de ahí ya puedo utilizar todos los netos, todas las herramientas que me ofrece esta clase.
+En este caso, pues hay una opción que es SELEMENT, por sídion, luego que quiero la posición 2 y ya la tengo seleccionado.
+Me lo hace solo, vamos a ver si lo puedo ejecutar.
+Aquí.
+Bueno, pues, abre el navegador, ahora mismo salió el tono navegador, ahí ya lo tenemos.
+Le digo que me descarga esta página, que vaya a esta página.
+Le digo que me busque el elemento cuyo ID es TROP DAW, ya he revisado la página, así que es este, no va a tener ningún problema.
+Me lo localiza, graficamente no hay ningún cambio, inicializo la variable de SELEM, lo mismo, graficamente no hay ningún cambio, y ahora sí, cuando le hago el SELEMENT, va a index 2, 2.
+Aquí sí que me lo ha marcado, me ha ahorrado el acerer clic, el ir para abajo, el montaño.
+Vale, puedes hacer una antigua, paso por paso, o es un moderna que llevas directamente lo que te interesa.
+Puedes seleccionar por posición 0 1 2, puedes seleccionar por texto, puedes seleccionar por montares de historias que vienen en la documentación de SELEMENT.
+Vale.
+Qué vas? Vale, más cosas.
+Hemos visto cómo utilizar una API, muy sencillo, hay que hacer un recuerdo al catálogo, ver el recurso que te interesa y volver a hacer otro recuerdo para descargarte ese recuso.
+Hemos visto Beautiful Soup, que es solamente para trabajar con el HTML de una manera sencilla, buscar una etiqueta o una raile de etiquetas iguales y recorrerlas y procesarlas para ir directamente a por el dato.
+Y en ocasiones vamos a necesitar SELEMENT, especialmente cuando hay que entrar dentro de una página que requiere login, y especialmente muy especialmente que no lo comenté, lo comento ahora, cuando esa página está cargada de JavaScript.
+Por lo que siempre me ha dejado a JavaScript, que cuando tú haces un recuerdo de esa página te descargas el código JavaScript y un esqueleto de la página HTML, pero ese JavaScript se ejecuta en local, en tu cliente.
+Y una vez ejecutado en cliente llena de datos, esa página de datos o de texto o de lo que sea.
+Entonces, cuando tú utilices Beautiful Soup para una página que está con mucho, mucho, JavaScript, pues no ves nada, ves un esqueleto prácticamente vacío.
+Creo que el ejemplo que ponía la documentación, y si no otro que puede ser contra fácilmente, es una página de citas en la que si tú entras con Beautiful Soup, no ves nada, ves una tabla con una cabecera, no ves nada, porque las citas se van llenando con un JavaScript, que hará su magia y tira insertando ahí las citas de JavaScript.
+Entonces, para estas ocasiones en las que hay que ejecutar un JavaScript y es ideal utilizar SELEMENT, porque abre su navegador, le dices, le haces un GET a una página, esperas que se cargue, se puede hacer de muchas maneras, pero puedes aceptar un SEO como un TIME, que pone un lado a dormir en 2 segundos, y a partir de ahí tienes disponible todo el HTML ya poblado de datos.
+Ya se ejecutaba JavaScript y ya lo tiene.
+En muchas ocasiones se puede poner un booklet esperando a que se cargue una etiqueta que sabes que es la última que va a cargar, entonces cuando aparece ese etiqueta es que JavaScript está totalmente ejecutado y ya la página es estática, digamos.
+Y ya puede recorrerla o bien con las herramientas de SELEMENT o bien con las herramientas de Beautiful Soup.
+Se pueden mezclar las dos cosas, no se se tenía ahí un.
+
+
+No, no tenia que ir en el ejemplo.
+No se que está en la documentación.
+Algo un ejemplo en el que entrabas con SELEMENT, hasta donde terminamos punto y a partir de ese punto, entonces ya pasadas a Get Your Full Soup, descargadas el HTML con el Get Your Full Soup y a partir de ahí trabajas.
+Se son herramientas, simplemente.
+Bien, y ahora vamos a ver Kafka.
+Vamos a ver Kafka, que es una herramienta super interesante.
+Ah, me tengo Kafka aquí.
+No, me tengo Kafka aquí.
+Vamos a ver qué.
+Vamos a ver qué.
+Vamos, el documento que has pasado.
+Bueno, qué es Kafka? Kafka es un servicio, yo no sé si yo sonamos quito y otros así, similar.
+Es un servicio de envío de mensajes, pero no envío de mensajes, SMS, VASAB, ROLLER, así.
+Es un sistema en el que hay como dos actores importantes, que son los productores y los consumidores.
+Depende del programa concreto, pues se pueden llamar de maneras distintas, pero la esencia es la misma.
+Uno, producen datos, generan datos, crean datos, no sé cómo decirlo, productores.
+Y otros los consumen.
+En algún lado, veréis, en Moscito, creo que por ejemplo, es suscriptores.
+En otro lado, pueden tener nombres distintos, pero una figura es la que crea esa información y otra figura es la que consume esa información.
+En ejemplo, típico son los sensores de Internet de las cosas, de temperaturas y todas estas cosas.
+Todos estos son productores y después hay un montón de aplicaciones que tienes en el móvil o en tu sistema domótico, que son suscriptores o consumidores de esta aplicación y en función de lo que vayan consumiendo, pues van haciendo cosas.
+Entre los productores y los consumidores, hay una cola de mensajes, que también depende de la aplicación, tiene nombres distintos.
+En Cazca se llaman TOPICS, TOPICOS o TEMAS.
+Entonces, en un Cazca, en un servidor Cazca, tú puedes crear tantos TOPICS como TEDE LA LANA, tantos como quieras.
+Temperatura de la aula 13, temperatura de la aula 10, temperatura, lo que se te va a ocurrir, te va a exponiendo temas.
+Después vas creando parte, vas creando consumidores, pero productores, pues pongo un sensor de temperatura en esta aula y le doy un hombre sensor 1, luego me da el sensor, tú todos los datos que generes, los vas a volcar al TOPIC a la aula 13.
+Y él lo irá haciendo.
+Mañana quiero poner otros sensor de temperatura también, una que ya habla de la ventana y otro lado de la puerta.
+Yo que sí, porque quiero.
+Pues al otro sensor le digo, mira, tú también vas a volcar tus datos en el TOPIC a aula 13.
+El que pensar en la estructura para que en ese mensaje que envía con la temperatura, pues aparece una idea, al mejor sensor ventana, sensor puerta.
+El sensor ventana 19 grados, sensor puerta 18 grados, lo que sea.
+Y entonces ellos van vertiendo datos ahí, le en un dato, lo mandan y se olvidan.
+Ya pierden, pierden conexión con ese evento que ha pasado.
+Y por otro lado están los consumidores.
+Yo puedo crear una aplicación para el móvil para ver la temperatura de este aula.
+Entonces esta aplicación mía lo que va a hacer va a ser ir a esa cola de mensajes, a ese TOPIC y leer lo que yo le diga.
+Desde el principio los cinco últimos, el último, lo que yo le diga.
+Y esa aplicación hará lo que yo le mande, pues me lo ponen pantalla o me calcula.
+No sé, lo que sé, me lo ponen pantalla.
+Alguien dirá, bueno, pues eso ya estoy inventado, son las bases de datos.
+Los sensores cuerdan un registro en la base de datos y el cliente lo consulta.
+Sí, pues tiene esto la razón.
+Lo podríamos hacer con base de datos.
+Pero este servicio, a Pachecazca y todos los relacionados de gestión de eventos y de mensajes, permiten que los clientes tengan mucha, mucha, mucha facilidad para saber cuál es el último mensaje que leyeron.
+Por si no lo tienes que implementar tu, vale, si yo creo un sensor de temperatura y regularmente cada un minuto, voy enviando datos, es muy bien, pero tú como cliente en tu aplicación tienes que ver que era es y descargarte hacer un select y descargarte los determinadas fechas hacia adelante o tienes que gestionar tu eso.
+También es difícil saber cuál es el leído ya.
+Todo eso lo tiene que gestionar el cliente si lo haces tú con base de datos.
+En cambio, si lo haces con Cacheca, esa gestión de cuál es el último que le yo o sigue leyendo a partir de donde lo dejaste, todo eso lo gestione a Cacheca, tú te desentiendes.
+Eso hay que tener algunas características como que en los mensajes no se pierden, se pueden grabar en el disco o no pueden permanecer durante horas o días, memoria y después sobre escribirse como si fuera un bucle circular entonces eso se puede hacer con base de datos, pero tienes que programarlo.
+La base de datos está pensada para que metas datos y después agas consultas.
+Cacheca es un sistema distinto en el que hay una cola de mensajes que pueden ser persistentes, pero lo normal es que no sean persistentes, que se vayan borrando con el tiempo, creo que por defecto, por defecto, sin no tocar nada, se almacen a la memoria durante una semana y a partir de ahí se van borrando pero 100% configurable.
+Pues que están pensados para eso, para que haya muchos servicios que van mandando información ahí y clientes la van leyendo.
+Un caso típico típico con el que nació con nuestra nación para Linkering, pero relativamente se apropió del Uber.
+Si pensáis en la aplicación de Uber, tiene un montón de productores que son los coches que van mandando su posición.
+Es posible que Uber quiera guardar un historial amplio de por donde van sus conductores, yo no te digo que no, pero para lo que es estrictamente la aplicación de Uber para los clientes no hace falta tener la base de datos en teras de las ubicaciones de todos los conductores de Uber.
+Si te interesa, si hemos 10 minutos, la última media hora te interesa tener en tu móvil los datos del último momento, no te interesa tener todos.
+Para estos casos, los que hay productores que van generando mucha información y que llegan los clientes y solo quieren los últimos ex mensajes, pues esta cazca está muy bueno porque te hace transparente todo este servicio.
+Lo que os comentaba, palabras clave, productores, que son los que crean los datos, consumidores, que son los que en los datos, los mensajes, que suelen ser estructuras muy pequeñitas, muy sencillitas.
+Así que básicamente son parejas de clave valor, una clave y un valor que puede ser más o menos grandes, más o menos codificado, más o menos tap, pero que en la esencia es sencillo, no? Pues una temperatura, una posición GPS, un pedido, un lo que sea.
+Los valores, que son lo que acompañan a las claves y los topics.
+Para estego aquí, a ver si lo puedo pintar más o menos bien, quiero que os imaginéis una aplicación de una tienda online.
+Entonces, llega un pedido y cuando llega un pedido, pues está guay que al cliente le mandemos un email de hemos recibido tu pedido, estamos en ella.
+Y que después de mandar el email, a veces hay un movimiento, una notación en el inventario.
+Y que a la vez haya un alta en algún punto de la almacén para que preparen el paquete y también que hay una petición altra del transportista para que venga a recoger el paquete.
+Y también cuando llega el momento que llega el transportista que se vuelva a enviar un email al cliente de todo esto.
+Si nosotros nos ponemos a pensar en programar esta aplicación o hacemos un sistema muy grande que ya estará hecho y lo padamos y lo usamos y ya está.
+Pero si tenemos que implementar nosotros, es probable que hagamos algo un poco monolítico en lo que primero va a una tarea y después otra y después otra.
+De manera que se haya algún retraso o algún problema en enviar el primer correo, por ejemplo, porque enviar un correo es una cosa muy lenta, muy muy lenta, comparado con una alta o una consulta nuevas de datos, enviar un correo, es algo extraordinariamente en él.
+Entonces, si nosotros somos zapatería manolo con todo el respeto de la zapatería y a mano lo, pues no pasa nada, podemos enviar un correo a objetar de cinco minutos y después seguir con el proceso.
+Pero si somos amazon, no podemos perder cinco minutos en enviar un correo y tener el resto del proceso en espera.
+Entonces, la cosa se complica mucho y hay que empezar a crear hilos o hacer cosas.
+Y aunque creemos hilos, si hay un problema en el envío del correo, ese padre no muere porque tiene uno de sus hijos ahí haciendo cosas.
+Entonces, es una cosa complicada para ello.
+A ver.
+No sé, a ver, este para ello quiero que y penséis en un usuario.
+Oye, qué sé esto.
+Me da el usuario, no sé si es lo que es.
+Vale, pues este es el usuario que genera un pedido.
+Entonces, ese pedido va a una cola.
+Va a una cola.
+Su pedido va a una cola.
+No se pierde.
+Va a quedar ahí.
+El programa gestor de correos va a estar como consumidor pendiente de esa cola, de ese tópique.
+Y cuando llegue algo nuevo, él lo va a ir atendiendo.
+Y me lo atenderá al que llegue, después al siguiente, después al siguiente, después al siguiente es una cola, es una pororce.
+Y lo va a ir atendiendo.
+¿Cuál es la ventaja de que si nosotros tenemos una cola de pedidos y un tópique para enviar un email, otro tópique para inventar, otro tópique para el transportista, otro tópique para lo que sea? Cuando se genera un pedido, se envían diferentes eventos, diferentes mensajes.
+Y cada uno va quedando en su cola.
+Y a esa cola, puede haber un gestor de correo o 25, porque lo mejor somos Amazon y tenemos un montón de servidores de correo.
+Que van a ir leyendo este tópique.
+Y van a ir tomando el que le toque por orden.
+Y van a ir enviando a los correos a sus ritmos.
+Es posible que, al mejor, el almacén, esto es una almacén.
+Bueno, he dibujado un tejado, pero esto es una almacén.
+Es posible que este pedido de este cliente ya se esté gestionando en el almacén y a lo mejor su correo aún no se ha enviado.
+El pobre cliente piensa que su pedido no está gestionado y a lo mejor está en el camión, saliendo.
+Pero la ventaja que tiene este sistema es que los procesos no están.
+
+
+Y va a decir relacionados, no están concatenados, no tienen dependencia unos de otros.
+Entonces, podemos tener los correos enviándose desde aquí.
+El almacén desde aquí, las facturas desde aquí y la transportista desde aquí.
+Lo ideal es que se ejecutaran un orden, pero a mí no importa si el correo se le envía un poco más tarde.
+Esto es como cuando veíamos las bases de datos no se cuelen, que ellos decía, mira, mi no me importa si me dice que tengo un millón 357 mil likes o un millón 357 mil un like.
+No me importa que ese dato no se las acto, como mucho es el anterior.
+No me importa.
+Pero si me interesa mucho que me une una respuesta rápida.
+Pues aquí la ventaja de utilizar el sistema es como Kafka, es que te permite procesos que son complejos.
+Partirlos de una manera que lo hace si te desentiendes, porque este evento de aquí, este proceso que hubo aquí generó un montón de mensajes.
+Y una vez envío este mensaje y se recibe en el tópico de Kafka, este tío ya corta esta pone, ya se olvida de esta conexión.
+Ya está, sabe seguro que Kafka no va a perder ese mensaje.
+Está en Kafka.
+¿Por qué sabe seguro que Kafka no va a perder ese mensaje? Pues ahora cuando entramos en cosas que nos deberían sonar.
+Que es que Kafka utiliza todo lo que ya hemos ido viendo en Big Data, en el escalado horizontal, pues eso lo utiliza Kafka.
+Es decir, tiene un nodo central, vale, nodo principal, digamos que es el que existió en las cosas, pero es que tiene un montón de réplicas.
+Entonces, los tópics se pueden dividir, se dividen de hecho, en particiones.
+O sea, ¿cordáis de los archivos que subimos HDFS que se dividían en bloques? No es que un archivo estuviera replicado mucho sitio, es que ese archivo se dividían bloques y ese bloque sí que estaba dividido en muchos sitios.
+Pues los tópics se dividen en particiones que se distribuyen en nodos.
+Estos nodos, os acordáis que tenemos data, nodes, nodes, donde nombres así, pues aquí también tenemos nombres y aquí se llama Brokers.
+Un cláster de Kafka está compuesto de uno o muchos bloques.
+Entonces, cuando tú tienes un sistema como ese cospinte antes de Amazon, pues probablemente negas muchos bloques.
+Y al mejor, tu tópic ocupa más de un ordenador, ocupa un montón de bloques.
+Pero, des tu tute de setiennes, porque esto lo gestiona Kafka.
+Entonces, aquí es donde comparamos.
+Esto se podría hacer con una base de datos, sí.
+Se puede hacer con un archivo, se puede hacer con una.
+¿Qué pasa cuando el acceso ocupa más de dos gigas? O cuando ocupa más de la capacidad del ordenador, pues aquí ya llega hasta el límite.
+Pues entonces utilizo la base de datos que me permita ampliar.
+Entonces, en cuanto a capacidad llega, pero tienes tu que gestionar.
+Cuando es el último mensaje que llegó, cuáles son los diez últimos mensajes que llegó, cuáles es el siguiente que hay que atender.
+Y en cambio en Kafka lo se encarga ahí.
+Entonces, a lo largo del texto este, os pongo algunas.
+
+
+No pistas, pero si algunos datos técnicos, porque me gustaría que.
+
+
+Llegados al final del curso relacionar a las cosas que tienen en común todo lo que hemos visto.
+Que Big Data se trata de escalado horizontal.
+Este es el factor fundamental.
+Si tú, si represan, tu negocio, donde tú manejes los datos, tu carga de trabajo no supera la capacidad de un ordenador, pues encantar de conocernos, pero no hay ninguna herramienta que te puede facilitar o ayudar en tu trabajo.
+De hecho te vas a complicar un poco la vida.
+Si tienes algo pequeño y que solo tienes un productor que genera datos y tal, pues yo no utilizaría Kafka, mejor yo utilizaría Redis, que es una base de datos que comentamos antes de parejar clave valor muy rápida, saloja memoria y que al mejor me soluciona el sistema, pero Redis no llega para Amazon.
+Amazon o Uber tendría que utilizar cosas como estas.
+Lo he dicho todo lo que sabemos de Big Data, Replicación, Tolerancia Fallo, Salta disponibilidad, todo eso lo tiene Kafka.
+Tú puedes elegir si leer de un solo broker o leer de todos los brokers.
+Mira, yo es que en este topic creo que va a haber muchos, muchos consumidores, muchos.
+A lo mejor productor solo hay uno, pero va a haber muchos consumidores.
+¿Qué hago? Yo creo que lo voy a replicar y voy a permitir que se le da de todos los brokers.
+No sé si pilláis la idea de Big Data, que básicamente las configuraciones son así en todos.
+El cómo se hace, ya es decir, a la justicina y la documentación y ver cómo se hace.
+Pero esto es la esencia del Big Data, que crezca en capacidad horizontal.
+Bueno, que el Rafiquillo se ha acabado de la documentación.
+Lo he dicho, hay un productor, tenemos tres nodos, tres brokers, y en este caso tenemos un topic, el ZZZ, que tiene dos particiones, dos bloques tiramos.
+Perdón, ZZZZ, así, tiene dos particiones.
+Y además, además de tener dos particiones, tiene un factor de réplica de dos.
+Esta partición, la partición 0, que si estigamos la principal, tiene una réplica en este otro broker.
+Esto es HDFS, yo no sé si aquí suis capaces de ver el gráfico que tenemos con los bloques de HDFS, pero la esencia es la misma.
+Si este topic, el ZZZ, es muy demandado, pues está genial que esté en varios brokers.
+Y si aún está más, más, más demandado y queremos muy alta disponibilidad, lo que podemos hacer es que se pudiera leer desde las copias de seguridad, que la estoy a ZZZ, que no me acuerdo significa.
+Insync réplicas, bueno, pues está bien, pero la esencia, cada producto tiene su nombre comercial, pero la esencia ya la conocemos, que es la réplica, que pueden estar sólo como medida de seguridad de tolerancia fallos.
+Si este nodo cae, no te preocupes, porque no vas a perder tus mensajes, los vas a tener aquí replicados, la idea de la réplica.
+Y también, o o y lo que queramos, podemos elegir, tenemos lo de la alta disponibilidad.
+Mira, sólo el líder, sólo el master, sólo el principal va a contestar, va a recibir los datos de los productores y va a contestar a los consumidores.
+Eso sería una opción.
+Y otra opción para aumentar la alta disponibilidad es decirle que tanto el líder, todos sus réplicas, 2, 3, 4, 25, las que consideramos, conteste.
+La ventaja de Kafka es, hay un momento de alta demanda, porque tenemos una tienda online de turrones y en diciembre, noviembre diciembre, esperamos una avalancha.
+Me traigo el ordenador de casa o me hago una máquina virtual en AWS o lo que sea y añado más brokers a mi cluster.
+Y replico allí las particiones de mis topics.
+Y con esto lo que consigo es, además de tendencia fallos, muy alta disponibilidad.
+Llega enero y mi Dios me va a comprar un turro en enero, pues lo que hago es todas esas máquinas que tenían en AWS gastando, porque si las usas lados te las cobran, pues las apago.
+Y dejen mis brokers con lo que yo tenga en local y mis instalaciones.
+Lo que voy a ir perdiendo van a ser réplicas, no pasa nada.
+Me quedaré con el líder y ya está.
+Por temas de seguridad, grupos de otros carnesisis, los ajustes es la idea.
+Entonces, es muy bonito pensar que en Amazon puedes poner más menos como si fuera una goma, pero aquí lo que se trata es de ver la parte técnica de saber cómo se hace.
+Mientras otro nodo aumenta el número de réplicas y Kafka, igual que HDF hacia, de que nodo está más libre en cual hay que repartirlo, no tiene sentido meter la réplica dentro del tú mismo broker, porque si se muere el broker, ahí va todo.
+Y lo va repartiendo.
+Podríamos hacer eso implementado por nosotros mismos.
+Sí, pues que ya está hecho.
+Podríamos nosotros crear nuestro propio montar de coche, sí, pero igual es mejor uno que ya está hecho.
+Bueno, aparte de eso, hay un montón de historias como los grupos de consumidores, que se asocian para leer un determinado número de particiones.
+Pues puedo tener varios consumidores leyendo de un grupo de particiones hasta un límite y de manera que si hay más peticiones, pues la última no la tiene, por ejemplo, que sería el caso de aquí.
+Tenemos un grupo de consumidores que se les permite la lectura, pues en este caso a uno por partición, no, a uno por partición de un mismo tópico.
+Esto es un mismo tópico, pero está dividido en particiones.
+Pues el cuarto tiene que esperar.
+O no, da igual.
+Todo esto se puede configurar.
+¿Cómo es la instalación? Pues la instalación es ultra sencilla, un update y un update si queréis para tener los repositoños de vuestro Linux actualizados.
+Aquí ya por fin si podemos utilizar un Java de verdad, sí, la máquina virtual de Java, de verdad, estamos en la ocho.
+Yo creo que ya, el próximo curso van a ser todo mínimo Java 11.
+Yo creo que ya están todo todo el jadoo, ya soporta 11.
+Yo creo que también 11 estaba todo ya.
+Pero bueno, este llega a la 17 y está la mojaba y nos descargamos Kafka, está en la versión 4.
+Lo descargamos con un nuevo web web.
+Esto es casi casi que opiera y pegar de lo que hemos hecho hasta ahora.
+Lo descomprimimos.
+Bueno, acá me nombra por el quedar bonito y me creo la carpeta donde va a lojar los datos.
+O se acordáis en jadoo cuando creamos la carpeta está disco grande, donde ahí dejamos una carpeta para el NEMNODEL, en el rata no de enesencias, que es lo mismo, tiene otro nombre, pero la esencia es lo mismo.
+Configuramos un archivo de configuración de propiedades con lo que os digo aquí, que básicamente consiste en decirle donde vamos a dejar los metadatos, que lo llama logs aquí, pero aquí es donde vamos a dejar los topics, lo cal.
+En este ordenador estamos instalando Kafka en lo que será un broker.
+En este broker los datos van a estar alojados ahí en esta ruta de aquí.
+Le cambio esta línea, le voy a poner 0000, porque si no solo escucha peticiones de local host y con 0000 escucha peticiones de todo el mundo.
+Para que este broker, los topics que tengamos aquí, estén abiertos a todo el mundo y nos lo vais a perder, pero hay que formatear.
+La carpeta está donde vamos a dejar los datos, la misma esencia que hay que hacer de FES, hay que formatearlo.
+Y por último, lanzar el servidor Kafka.
+Bueno, esto es un servicio para que arranque Kafka automáticamente.
+Esto es una cosa de Linux que tienes que dejar un archivo en esta ruta, ETC, SystemD, System y el nombre que le queráis poner al servicio Kafka.
+Y básicamente escopiar y pesar.
+Esto es como lanzar un programa al inicio de la arranque del ordenador.
+Lo que pasa es que cuando lo haces con servicio, como un servicio, mucho más potente.
+Porque lo puedes configurar para que se lance después de que tengas la re funcionando, antes de que pase algo, puedes ver el estado en el que está, lo puedes relanzarlo, mucho más potente que simplemente si la arrancar.
+Ejecuta.
+Entonces, hay un script, no sé qué no sé qué estar, o sea, contraíste el start-all, el stop-all de HDFS, de Hadoop.
+Pues es muy parecido y hay que decirle dónde está la ruta de la archivo de configuración.
+Muy muy parecido a lo que hemos hecho en Mongo, en todas las herramientas.
+Y para que el servicio esté funciona, hay que ponerlo en Navel, para que arranque con todos los inicios del sistema y en Start para que arranque.
+Se puedo en ejecución.
+Bueno, eso es para tener el Proker funcionando.
+Y ahora, aquí en el documento éste os explico cómo manejar Kafka en dos versiones.
+Una de las versiones es por comando, el línea de comandos desde la consola, como si fuéramos un productor, escribimos algo en el top, primero creamos el topic, y después como productor es, escribimos en el topic.
+Y desde otro terminal, leemos del topic, perdón.
+Bueno, está pensando yo que yo, jodería que va a tirar virtual.
+Bueno, tengo la tendría que Gerrardon está bajo esto.
+Menjando darle unszy a las Reach Out, Vedimos hacia abajo por el Monte Jan.
+No estoy förstando el kanske alguna vez que ustedes пробier你们 si le conocen.
+Bueno, pues nada, os excreto como hacerlo por comando, es muy sencillito.
+Hay un script que se llama Kafka Topics, el que tenemos que dar una serie de parámetros.
+Geon Geon Create, Geon Geon Topic y el nombre del Topic, ojo con los guiones bajos porque no les gusta nada, en unas cuantas sigues las que no les gusta nada.
+Y Boot Strap Server es el Master, digamos, el Name Node, el Nodo Principal.
+Estamos acostumbrados a.
+
+
+ya no se deberíamos enternos cómodos con la idea de un cluster de muchos ordenadores en la que apuntamos al principal.
+Sabemos que después hay maneras de simplemente como en Mongo en que después hacemos un conjunto de réplica y le damos la dirección de todos y él se iba a conectar al que fuera primario en cada momento.
+O a este o a este, o a este al que fuera, pero le damos la dirección de todos y él lo encontrá.
+Entonces, un ejemplo más pequeñito, solo tenemos un equipo, entonces le damos la IP en este caso local host, pues estoy en el mismo sitio y el puerto 90 90.
+Es el puerto por defecto que usas, si lo podemos cambiar, evidentemente en el chivo de configuración.
+Tiene sentido, ¿no? Calf Catópix crea el nombre del Topic y cuál es el servidor que manda, tiene sentido.
+Nada, podemos recomando y el resultado debería ser que lo ha creado bien.
+Si hubiera algún error, no encuentro el servidor, no es capaz de escribir, no le gustan nombre lo que hacía, te saldría un mensaje de error bastante bueno, ya llega para entender qué pasa.
+Con Calf Catópix hay un montón más de parámetro, no hace falta verlos todos, pero por ejemplo este de menos menos list y nuevamente la dirección del líder, del master, del broker principal y nos dará un listado de los Topics que tiene, este de Consumer Offset, este es un Topic Interno que utiliza él para saber, el Offset es el desplazamiento, el orden, digamos, en que de los mensajes dentro del Topic, esto es una cosa suya, y terma, aquí no tocamos, pero aquí tenemos mi primer Topic, que es el que acabamos de crear.
+Vamos a escribir en el Topic desde Consola, quien dice desde Consola, dice desde una aplicación Aitop, podemos utilizarla así, o desde un script, vamos del sistema.
+Hay un script que se llama Kafka Console Producers, punto de SH, en el que si tuvieramos que diseñarla desde cero, pues estos son los datos que le pasaría, el nombre del Topic y el servidor principal, bootstrap server, lo que ajos 90, 90, entonces cuando tú haces esto en Consola, lo tengo aquí escrito, esto se convierte en un nuevo shell que queda aquí con la punta de flecha esperando a que tú escribas y escribes la línea, que esto también nos debería sonar, y cuando hicimos MapRedeos, que es lo que veremos en la vida llamada del jueves, MapRedeos también funciona un poco parecido, enviabas toda la línea hasta el intro y esa línea es la que se enviaba el MapRede para hacer lo que tuviera que hacer, pues aquí es lo mismo, queda el shell ahí esperando a que tú enviesas el director de un encarro, el cín del línea, para que se gestione.
+Entonces, esto será el valor del mensaje que se pie, para ejaclar el valor, pues esto será el valor, esto es mi primer evento, esto es el segundo evento o mensaje, depende del programa si llamará de maneras distintas.
+Y así se envía, lo bueno de esto es que te desentiende, eso sea una vez envías esto y Kafka te muestre a otra vez el símbolo del shell, tú ya sabes que eso no se pierde, vale, se puede perderme una cosa catastrófica como una base de datos y un ordenador, pero Kafka garantiza que solo llega una vez, que solo se va a procesar una vez, que ha llegado, que se va a guardar, que está reticado, que te lo garantiza tú, si te devuelve el promo, si no te devuelve es que está haciendo cosas.
+Bueno, ahora leer de un topic, pues aquí abres otra terminal, o abres otro ordenador remoto y aquí utilizas este script, Kafka Console Consumer, nuevamente le tienes que decir el nombre del Topic, aquí al final, el nombre del servidor principal y hay un nuevo parámetro aquí en el que podemos especificar desde dónde queremos recibir los datos, pueden ser desde el principio del Topic, yo sé, el Topic se guardan todos hasta que caducen, digamos, o todos permanentemente y tú le puedes decir al consumidor desde dónde quieres leer, me quiero leer los nuevos que me lleguen a partir de ahora, o yo solo quiero leer los que tengan un offset 10 anteriores a el último, o como en este caso desde el principio, pues en este caso quiero leer los topics desde el principio, es la captura que tengo aquí y me ha llegado esto en mi primer evento, esto es mi segundo evento, que es lo que estaba en el Topic y sigue estando allí para disponible para para para otros clientes y este cliente ya ha leído desde el principio, podemos forzar a leer otra vez desde el principio, o como en este caso esto se queda aquí esperando, entra como en un cell pero aquí no hay punta de flecha, aquí está esperando está pendiente del Topic, pero esto no es un bucle y un tru, no está dando vueltas ahí consumiendo 100% de CPU, esto es, está esperando el evento que se dispara cuando llega un nuevo mensaje al Topic, mientras está ahí para dormir sin consumir CPU o consumir de manera contundente, si yo ahora en otro terminal o en otro ordenador en ese Topic meto una nueva línea me aparecería aquí sola, aquí y en todos los clientes que estén escuchando, entonces le idea para que se viera esto, si tiene varios terminales abiertos, este que tiene tantas letras, por ahora es el servidor y aquí tengo el productor que tengo la punta de flecha y aquí tengo el consumidor que quiero leer desde el principio, es un Topic que no tiene nada ahora mismo, entonces, bueno, la situación inicial oculta el servidor y ahora lo que tengo aquí es donde está, aquí mi productor, primer evento, segundo evento, tercer evento, aquí tengo un consumidor que le desde el principio y me pone el primer evento, segundo evento, tercer evento y está aquí esperando, aquí tengo otro consumidor que le lo último que va llegando, no desde el principio, veis que no le puse aquí, de gaming, le puse nada, entonces él se incorpora a lo que vaya llegando a ese Topic, ahí fue cuando escribir el tercer evento y es lo que le llega a él, y este que es el último Topic, perdón, el último consumidor que cree, a pesar de ser el último consumidor que arranqué, le dije, le desde el principio, from begin, entonces me le llego el primer evento, el segundo evento y cuando metí el tercer evento me apareció ahí, entonces la ventaja de Kafka es un poco ésta, tenemos uno o 100.
+00 productores que van vertiendo mensajes a una o varias colas, no Topics, y tenemos uno o un millón de suscriptores o de consumidores como queréis amarlo, que va leyendo de esos Topics, bueno, tendría que leer el texto para recordar exactamente el escenario, pero la realidad es esta que os estoy comentando ahora, creo un Topic, escribo, veo que me aparece en los consumidores, creo otro consumidor nuevo que empieza a leer desde ahí, añado un nuevo mensaje, me aparecen los que ya están leyendo y me aparecen el nuevo, ahora creo otro consumidor, le digo que me recupero los datos desde el principio, es un poco lo que podéis imaginar de la aplicación de Uber, si yo ya tengo la aplicación de Uber funcionando, yo no quiero en cada refresco que me capture todos los datos desde el principio, yo quiero solo los últimos, al mejor si quiero ver un historial de por donde he estado, donde viene o donde tal quiero recuperar los últimos, no siempre todos los mensajes, vale, con todo el de palabras, porque esas programas no van a dejar, No, no, no, no.
+Vale.
+Bueno, pasamos de la parte de terminada, que es, con mediante el script eso, creo el topic, solo lo hago una vez.
+Y después creo el consumidor, y creo tanto perdón el productor y tanto es consumidor, como me interese.
+Ahora vamos a pasar a la parte de hacer esto programando, que ya es la que podemos incorporar bien, bien en nuestros archivos Python.
+Después vuelvo al contado de palabras.
+Vale.
+Hay muchas librerías para manejar Kafka con Python.
+Yo creo que la mejor la que más documentación tiene, la que más.
+
+
+Elcado tiene es confluente, porque hay detrás una empresa que, casualmente, es más confluente también, que es la que está manteniendo principalmente Kafka, y es la que gana dinero, proporcionándolo como servicio en la 9, y personalizando Kafka para los clientes.
+Pero es una pache Kafka por detrás.
+Entonces confluente tiene su propia librería libre grapita para Python.
+En principio es la mejor, un poco.
+
+
+Un pelín más complicada así para aprender, entonces vamos a utilizar Kafka Python, la que yo os presento aquí es Kafka Python, que es muy parecida, muy parecida, pero un poco más sencilla, más trivial, permite menos cosas, pero al nivel que nosotros lo vamos a ver es perfectamente suficiente.
+Para incorporar los nuestros proyectos Python requiere instalarlo.
+Y después ver el código, vamos a ver entonces.
+Bueno, ¿cómo hacemos esto? Importamos la librería de Kafka y tenemos aquí un Kafka main client, donde indicamos la IP del servidor y el porto 90.
+2.
+Esto es el bootstrap server que utilizamos también en la consola.
+Lo dejamos ahí definido.
+Y también creamos el Topic, también utilizando un new Topic, que es como una a toda la librería de Kafka, esto viene de Apache, donde creamos el nombre del Topic y fijaros qué cosas hay aquí, que no las venía explicar, porque ya las deberíamos conocer.
+Esto de número de particiones es como cuando hacíamos el Sardin en MongoDB, en el que hacíamos este Topic, lo voy a partir en X bloques.
+Este caso lo estoy diciendo que un bloque solo.
+Y el factor de replicación de uno, o sea que no haya, entiendo, no sé si hicieron la verdad, ahora me pillas.
+Bueno, vamos a suponer el factor de replicación de uno, es que no haya replicas, que sólo tengas una partición.
+O sea, en caso extremadamente sencillo para una cosa muy local.
+Entonces, para crear el Topic, básicamente utilizaríamos este comando.
+Aquí veis que lo método dentro de un trae, es que es el CET por CET, pues, si falla, tenerlo controlado.
+Pero en esencia, así creamos un Topic.
+El productor, ¿cómo hacemos con el productor? Bueno, pues hacemos un Kafka Prodioser y le tenemos que decir, el bootstrapserder, donde está el broker, donde vamos a enviar el tag.
+¿Qué más tenemos que decirle necesariamente el Topic, donde la vamos a instalar? ¿Dónde lo vamos a enviar? Esto lo hacemos aquí en el CET.
+Le pasamos el Topic.
+Aquí estoy a borrar esta comilla, a comilla, tengo que ir a cerrar aquí.
+Y le pasamos el Topic que está dentro de ese broker y el valor que le queremos mandar.
+Vale, el valor lo tengo aquí, previamente establecido.
+Hola, mundo.
+Por temas de eficiencia, al hacer un Ser, no directamente se envía siempre.
+Los datos son los mensajes, son los Ser, cosas muy pequeñitas.
+Si queremos obligarnos a enviar el dato chat, sea que se tenemos que hacer un flush.
+Si no, se van a acumular unos cuantos mensajes.
+Pensar que, por ejemplo, en Ethernet, el paquete más pequeño que hay es de 1500 bytes.
+El más pequeño que hay, un paquete de Ethernet, son 1500 bytes.
+Estoy quitando CBC, la estoy quitando, está quitando Qual, aquí hay yo que sé, 14 bytes.
+Es muy pequeño lo que se envía.
+Entonces, se espera acumular un paquete para que no haya tanto tráfico de res.
+Pero si para ti es importante enviar el mensaje cuanto antes, haces un flush y ya está.
+También si lo cierra, el productor, también obligas a enviarlo inmediatamente.
+Entonces, los cosas son un poco opcionales, buenas, pero opcionales.
+Y ya está, con esto se envía un mensaje que tú quieras.
+Nuevo en vivo, en vivo ni me da este furlano, con este texto, lo que sea.
+Vale.
+Vale.
+Y.
+
+
+Kafka Python Kafka, un Kafka Python.
+Es sencillo.
+Es la que elegí finalmente, porque permiten enviar cadenas de texto.
+Pero formalmente, Kafka solo permite enviar bytes.
+Entonces, el dato que tú tengas, es que serializarlo.
+Vale.
+Es que pasarle una función, un método, en que te convierte esos que tú quieres enviar, una imagen, un documento, un loquecea, esos que tú quieres enviar, que te lo convierte en un chorro de bytes.
+Esta aplicación, este Kafka Python que utilizamos nosotros te permite enviar streams, directamente, ya lo hace el solo sin que te descuenta.
+Pero en muchas ocasiones enviar un stream es un poco corto.
+El mejor te interesa enviar un JSON, con más datos o mi imagen o lo que sea.
+Vale.
+Entonces, para los casos esos, los que quieras enviar algo, hay que serializarlo.
+Serializarlo.
+Aquí, por ejemplo, voy a enviar este JSON.
+Vale.
+Que aquí lo vemos como un dicionario, usuario javi, mensaje o la.
+Pero yo esto no lo puedo enviar, porque esto no es una cadena de texto, son varias cadenas de texto.
+Vale, es una cosa más compleja.
+Entonces, directamente no lo puedo enviar a Kafka.
+Kafka, solo acepta, chorros de bytes.
+En este caso, pues con la librería de JSON, lo que puedo hacer es convertir eso a un JSON y codificarlo, como un chorro de bytes, lo que voy a codificar con un tf8 para el tema de los acento, las comillas, todo este tipo de cosas.
+Entonces, esto es lo que me hace es este JSON que tenía aquí convertirlo en un chorro de bytes.
+Y esto es lo que puedo enviar al tópico.
+Bueno, esto es lo que puedo enviar.
+Esto sería la opción buena.
+Esto es un ejemplo para entenderlo, pero enviar un string, oye, si llegas, tabiene.
+No hay ningún problema.
+Pero lo más habitual es que necesites enviar cosas más complejas.
+El pedido que ha hecho el cliente o lo que sea.
+Bueno, eso para.
+
+
+Eso para el productor.
+Este es un código más complejo, que solo disfrutarán de él los desarrolladores.
+Los sistemas aquí nos darás un poco de repelús, pero lo aceptamos.
+Entonces, como lo vais a ver en varios sitios, mejor lo puse aquí, copiar, pegar y leer aquí.
+La única diferencia es que aquí cuando instanciamos la variable está del productor, aquí le estamos diciendo que el servidor principal es este, pero también le estamos diciendo que para el valor que vamos a enviar, de la pareja clave valor, el valor, lo vamos a serializar de manera automática.
+Y para ello le vamos a aplicar una función.
+Y para retorcer más no es una función normal que hayamos hecho por ahí arriba.
+Es una lambda que esto es maravilloso de ver, porque si te gusta programar, aquí estarás disfrutando.
+Las landas son.
+
+
+Funciones que, en principio, son muy sencillas, porque requieren una, dos líneas de código, son tan sencillas, que se inventaron esto en la landa para no tener que poner la cabeza y eran los paréntesis, los datos de entrada, el retorno, no sé qué no se cuándo.
+Entonces aquí.
+
+
+El va a tomar el valor, que lo va a llamar como uve, le va a aplicar esta línea y va a devolver el resultado.
+Entonces, el lugar de definir por aquí arriba, des, serializar valor, abre paréntesis, datos de entrada, el dicionario de entrada, después la línea ésta y después el retorno, pues, en lugar de hacer esas tres líneas, lo metemos en una landa.
+Programadas.
+Y entonces, todo queda la verdad es que, después en el código, queda bastante más bonito, los cosas como son, porque fijaros que yo de aquí tengo un mensaje con un JSON, así más complejo, no? Un poco más.
+En la sencilla es igual que el otro, pero con más campos, más cosas.
+Y para enviar un envío sin más, no tengo que complicarme la vida, simplemente porque aquí, cuando definí la variable del producto, aquí está, pues, antes de enviar este valor, lo va a pasar por la landa que va a hacer todo lo que tenga que hacer.
+Entonces, bueno, también.
+Consumidor.
+Bueno, pues aquí un poco lo mismo.
+Si en el productor hemos enviado un chorro de bytes, el consumidor va a recibir un chorro de bytes.
+Entonces, tenemos que des serializar lo mismo.
+Aquí, fijaros que arriba, tenía un serializer, y aquí tengo un serializer.
+Lo mismo es una landa que decodifica el chorro de bytes con el 8, no? Tema de la codificación de los acentos y esta cosa.
+Y lo convierte en un JSON.
+Entonces, a partir de ahí es muy sencillo, porque fijaros que tengo el consumidor.
+Acordaros de la consola.
+Cuando yo abría un consumidor, se me había un shell, sin flecha ni nada, se me había se ponía abajo el cursor y quedaba esperando.
+Yo que yo os decía, esto no es un bucle, guay, el true.
+No es un bucle.
+Se queda esperando a que la que parece el evento.
+Pues aquí es lo mismo.
+Fue jaros, hay un foro aquí por cada mensaje dentro del consumidor, porque esto no está dando vueltas como locos, esto está esperando.
+Se supone que este el consumidor es una rai, pero ahora mismo es una rai vacío.
+Cuando llegue el primer evento, este elemento que entra dentro del consumidor aparecerá aquí en mensaje y se tratará.
+Y quedará a esta vacío.
+Vacío, no.
+Ya medio recorrido.
+Hasta que aparezca otro y otro y otro.
+Vale, si esto fuera una rai al uso, cuando llegas al final, esto se acaba.
+No, pues esto está siempre así.
+Este programa está siempre en ejecución.
+Vale, es un consumidor como el de la consola que queda ahí.
+Y esto.
+Entonces, bueno, esto es un mensaje que viene con varias partes.
+Ves que viene ahí a BCD, viene en cuatro partes, viene la llave que no la estamos utilizando, viene el valor que sí que estamos utilizando.
+Es esto que le mandamos.
+Bien información de en qué partición está dentro del tópico para que tú sepas en qué lo que está.
+Y viene la información de qué offset, de qué desplazamiento representa ese mensaje del total.
+Vale, si te viene offset 145, pues ya sabes que tienes 145 mensajes, 144 mensajes detrás.
+Y lo muestra así y listo.
+Aquí arriba esto.
+Le he faltado comentar esta línea.
+Si encomando, si en por terminal pusimos from beginning, aquí en Carth Capitan, tenéis que ver la documentación para ver qué parámetros tenéis.
+En este caso, el autooffset reset, el primero, el más reciente en llegar.
+Y aquí utilizo el mismo.
+Hay que ver la documentación no más acuerdo cómo indicar desde un offset en concreto o desde el principio o a medida que vayan llegando.
+Y esto es un código muy parecido, pero fijaros que aquí no le puse el deserializer, este con la lambda por defecto.
+Entonces, lo que tengo que hacer es cada vez que yo me leo mensaje, acordarme, que tengo que codificar.
+Simplemente para que veáis códigos de un lado del otro y que tengáis criterio para decidir cuál los compensa.
+Yo no sé cuál, supongo que depende del este Mario.
+Bueno, después os comento algo sobre ejemplos.
+Y me pareció este de Dentra Online como el más representativo, porque está guay que cuando hay un aventado, cuando hay un proceso así un poco grande, es ser capaz de enviar eventos.
+Como si fuera ese jefe y tienes empleados que.
+
+
+Ecárgate desde un carga, desde un carga de esto, y cada empleado va y se encarga de una cosa.
+Tú sabes que todo suman el total, pero cada uno va a lo que le has mandado.
+Entonces.
+
+
+A ver si ven aquí.
+
+
+Vale.
+Y pregunta a mi chica, por un ejemplo que no fuera, porque también no me gustan los ejemplos, estos así muy eternos.
+Me gustan las cosas así de el mundo real.
+Entonces, esto es un ejemplo de alguien no informático, que después de.
+
+
+con mucha paciencia aguantar mi explicación de que era Kafka, pues le pedí que me buscaron un ejemplo del mundo real.
+Y se lo ocurrió que le gustaría inventar un sistema en el que los usuarios hagan peticiones de libros o de seris o de películas que quieran descargaso, que quieran ver lo que sea.
+Bueno, vamos a ver.
+Libros que te quieras descargar al quín de la sí por la cara.
+Entonces, le gustaría que hubiera un topic en donde la gente dejar allí sus sugerencias.
+Oye, quiero este libro, quiero este libro, quiero este otro.
+Y por otro lado, hubiera unos consumidores que leyeran de ese topic y pues, porque lo tienen y lo publican o porque lo consiguen y lo publican o no lo consiguen o lo que sea.
+Que cuando consigieran uno de estos libros, estos consumidores a la vez fueran productores de otro topic de sugerencias atendidas.
+Vale, no sé si me explico.
+A ver.
+Esto seguro que se borra.
+Me tiene para tirar el transfer.
+Bueno, pues ella lo que quería, ella lo que quería era que muchos clientes, muchos clientes que tuvieran acceso a esta aplicación, escribieran en una lista, en un topic, perdón, de peticiones.
+Es que lo voy a pedir la mano.
+O sea.
+Bueno, hay un montón de gente que va a ir añadiendo mensajes a un topic de peticiones, de quiero este libro, quiero esta película, quiero lo que sea.
+Y después va a haber gente muy mala y legal, toda legal, una o dos personas, no sé, o 25 mala gente que se van a dedicar a piratería.
+Entonces lo que van a hacer va a ser consultar este topic de peticiones para ver qué es lo que la gente demanda y lo buscará por su cuenta.
+Y cuando lo consiga, y cuando lo consiga, lo que va a ser va a ser atendidas.
+Cuando consigas un determinado libro que alguien ha pedido o lo que sea, lo que va a ser va a ser dejarlo aquí.
+Entonces, toda esta gente que está aquí, que en su momento era productor de estas peticiones y sigue siendo productos y que era la aplicación que tengan el móvil o en el ordenador lo que sea, sigue teniendo la opción de hacer peticiones.
+También a la vez va a estar siendo consumidora o suscriptora de un topic que se llama atendidas, sus sugerencias atendidas o nuevos novedades.
+¿Dónde se van a ir publicando las peticiones que vayan siendo atendidas por esta gente? No sé si me seguís.
+Los escenarios de Kafka no son solamente un topic que vuelcas datos y la gente los lee, que es algo principal.
+El escenario típico es la domótica.
+Hay muchos sensores que van vertiendo datos y las aplicaciones hacen de consumidores de esos datos y los atiendes.
+Pero que no es la única manera de jugar con Kafka.
+Esta otra manera, la que hay varios topics y en las que un mismo actor puede ser consumidor y suscriptora la vez.
+Y suscriptora sí, suscriptora o consumidor, que depende de la aplicación que uses se llama en una manera de otra.
+Vale.
+Entonces, la idea de Kafka es esta.
+Estas personas de aquí han hecho su petición en cuanto a hacer una petición, su programa corta ya.
+O sea, se ha desentendido.
+Ha hecho el enviar y ya está.
+Siguiente iteración.
+Hacer otra cosa.
+No está pendiente.
+No es un.
+
+
+No sé cómo hacer un Python para esperar un intro del teclado de lo recuerdo, del usuario que te quedas ahí esperando hasta que pase algo.
+De eventos, ¿no? Una gestión de eventos.
+Vale.
+Esto se puede hacer con bases de datos sí.
+Se puede hacer con bases de datos sí.
+Pero pierdes, pierdes, el.
+
+
+La gestión del evento.
+Pierdes él saber cuando ha llegado un no-registro.
+El base de datos es fácil saber cuando he llegado un no-registro.
+Pues sí que hay maneras.
+Pero no es nativo.
+En Python, en Python, perdón.
+En Python, perdón.
+Es nativo.
+Está preparado para cuando llegue algo tabizo.
+La tuta es el tiendete.
+Aquí lo hace falta que haga nada.
+Yo tabizo.
+Lo hace falta que tengas un Chrome.
+Ahí cada minuto haciendo una consulta.
+Yo tabizo.
+Entonces, es la parte.
+
+
+Bueno, entonces, en la inmensa sabiduría de chat GTT, le expliqué lo que quería y me lo hizo.
+Es un productor que ya viene aquí con la landa.
+Esto es chat GTTotal.
+En la que, yo como productor, voy a hacer una sugerencia.
+Entonces, que el usuario este, pues, pone una sugerencia.
+La que sea.
+Se ve que aquí la dorné un poco.
+Y lo envía al tópid de sugerencias.
+Y ya están.
+No hacen más.
+Y después hay un consumidor.
+Vale, un consumidor.
+¿Qué serían estos de aquí? Es el código que acabamos de comentar.
+Y ahora estoy hablando de los malos.
+De estos.
+Estos malos tienen doble papel.
+Porque por un lado son consumidores.
+Consumidores del tópid sugerencias.
+Vale.
+Bueno, eso.
+Sugerencias.
+Y.
+
+
+Y también a la vez van a ser productores.
+Esto lo vemos después.
+Van a ser productores de otro tópid que son.
+
+
+¿Dónde está? Productor, productor.
+Bueno.
+No lo veo.
+Bueno, vamos por parte.
+Así, aparece.
+Aquí, aquí.
+Sugerencias atendías aquí.
+Bueno, por parte.
+Los malos son consumidores.
+Consumidores de que? De la lista de sugerencias.
+Entonces, venimos aquí al cuerpo del programa.
+Y vemos que.
+
+
+Tiene un bucle aquí que va a ir leyendo los mensajes del tópid.
+A medida que vayan llegando, pues.
+
+
+Se decide si lo atendon o lo atendon.
+Aquí, es que es el cháGPT, que alociné.
+Aquí, si aparece café en la sugerencia, lo va a atender.
+Si no aparece la palabra café en la sugerencia, no lo va a atender.
+Bueno, está bien.
+Entonces, si atiende esa petición que me llega, porque tiene la palabra café y lo veo con buenos ojos que tenga la palabra café, lo voy a hacer va a ser crear un documento que va a tomar el nombre del usuario, el mensaje que puso y lo voy a marcar como que atendida, que esa petición que hizo como el local de en su programa, ¿no sabes? Venga, te pongo un banco donde tú me digas.
+Yo había que poner como atendida y ya me andaré alguien para que la gestione.
+Y lo voy a enviar al tópid de sugerencias atendidas.
+Al enviarlo, me convierto en un productor.
+Entonces, es la inicialización que tengo aquí.
+Soy productor, lo voy a enviar a mi mismo servidor.
+Soy el único que hay, y tengo aquí un serializer para convertirlo en un chorro de maíz.
+Este código, así que quenito supercútre, veréis el chat gpt con un prompt de dos niñas.
+Muy poquito cosa.
+¿Qué es esto? Está aquí como consumidor de peticiones, si la consumí, si la consumí, si el evento, el mensaje que le tiene la palabra café, entonces la tiende y va a dejar aquí un nuevo mensaje.
+La la pasa, la siguiente.
+Es un bucle for.
+No pone café, vale, pues, siguiente.
+Otra vuelta.
+Vale.
+Y tengo que volver a editar los clientes, ¿vale? ¿Por qué? Los clientes que antes eran solo productores de peticiones, ahora acuérdate que también tienen que leer las atendidas, las sugerencias atendidas.
+Tienen que ser, entonces, consumidores de este, de este topi.
+Con su midor le dices el nombre del topi, le das el los datos y lo pones aquí a recordar.
+Vale.
+Para las sugerencias que sean atendidas, podríamos complicar esto más, y pues, al mejor, solo quiero que me abise de las peticiones atendidas que hice yo, que hice un mi cliente.
+Vale, pues, aquí dentro de este form había que meter código.
+Esto puede crecer hasta el infinito, pero ya es un tema de programación, ya no es de Kafka.
+Kafka, su misión es darte los mensajes que te tenga que dar y punto.
+Es misión tú, ya como programador, el saber si quieres gestionar ese mensaje, si no lo quieres gestionar, si quieres tratarlos y quieres transformación.
+Vale, la parte de ver, transformar los datos.
+Pero yo creo que ya es sencillo, esa parte.
+Solo quiero atender, o sea, solo quiero que me llegue a mi ventana de mi móvil, los mensajes, las peticiones atendidas que hice yo.
+Vale, pues, dentro de este form, ahora que meter lo que sea.
+Y ya está.
+Vale, no tiene mucho más la instalación es súper sencilla.
+Hacerlo por comando es súper sencillo, tienes que abrir varios terminales a la vez para que veas un poco la potencia y después imaginártelo que en lugar de tener 20 terminales en tu mismo ordenador, pues tienes cientos de clientes repartidos por el mundo.
+Vale, que van viendo cómo se actualiza la ubicación del conductor de Uber, o qué van viendo lo que sea.
+Cazca es casi tiempo real, casi tiempo real.
+Hay una aplicación que está por encima de Cazca, que se llama Flick, Flick, que es tiempo real.
+Pero Cazca es del orden, depende de dónde lo veas, lo meten como tiempo real.
+Que es decir, que está muy preparado para esto.
+Si tú no tocas la configuración de Cazca mucho por defecto, pues es una base de datos, es una base de datos, está alojada en memoria, aunque hemos formateado el disco a acordar para guardarme datos, el topic está almacenado en memoria es muy rápida, muy rápida.
+Vale, ¿qué pasa? Es muy rápida si pensamos en escala de Big Data.
+Si tú en tu máquina virtual tienes cinco terminales, pone es uno y le das a intro, es que hay un retraso de, no sé, en el segundo.
+Vale, es una cosa.
+Pero si tú esto, los callas a un millón de clientes es el mismo tiempo.
+Vale, no hay más delay por tener más clientes.
+Entonces, es un sistema casi casi de tiempo real.
+Cazca.
+Muy interesante, si queréis programar aplicaciones de este tipo, en las que productores y consumidores estén separados y hay una carga importante de la que se puede escalar horizontalmente.
+Otro sistema parecido éste es Mosquito, la idea es la misma, tiene nombres distintos, pero es la misma, lo que pasa es que Mosquito no es Big Data, porque no escala horizontalmente, es un único servidor, le dejas la misma, pero son un único servidor, no escala.
+No te podría decir, Rabi también es otro clásico de la categoría Mosquito, pero me imagino que la dice, porque cuando preparé la augmentación de Cazca, el mensaje para vender Cazca era el tema de este de escalado horizontal, entonces me figuro que todos los que ya había antes, rabil, Mosquito, todos estos, imagino que no escalarán horizontalmente, pero esto y los soluciones vamos rápidamente, porque parece tenemos GPD.
+Es una muy buena pregunta, interesa que voy a parar un minutito a verla.
+Vamos a verla.
+De diferencia hay entre parte Cazca y Rabi.
+Apache distribuido, tradicional y colas, no sé bien, ¿qué será esto? ¿Qué es esto? Bueno, no lo deja totalmente claro, pero si tuviera que apostar ahora mismo, así con información parcial, diría que va un poco en estas dos líneas.
+Cazca está pensado para esos escaladores y con tanto lo que hemos visto, de replicación, de partición, de tanto, estos son conceptos que nos vienen de HDFS, que son precisamente para eso para escalar todas las otras, no sé si todas las otras, pero intullo que es la diferencia fundamental.
+Bueno, pom, pom, pom, pom, muy bien.
+Bueno, entonces, el tema de adquisición de datos con esto, digamos que, cerramos la parte de ETL, cerramos la E, de extracción de datos, por el tema de la API y de web scrapping, así sencillo, o utilizando Selemin por si la web es inalcanzable o tiene mucho JavaScript.
+Y también hemos visto Cazca, porque también podría ser una práctica interesante, sensores industriales de máquinas o de lo que sea, que volcaran esos datos a el lugar de una base de datos, a un sistema como Apache Cazca, para que los puedan consumir.
+Entonces, esa es la parte de la E, de extracción de datos, de la quisición de datos.
+A la vez que hemos ido extrayendo esos datos, nos hemos dado cuenta que muchas veces hay que transformarlos de alguna manera, acordados de la temperatura de ese divingo, que tenía el circulillo este, por culpa de ese circulillo, ya no lo puedo convertir a un entero así alegremente, tengo que hacer alguna cosilla, muy sencillo, pero tengo que hacer algo.
+Entonces, esa parte de transformación, es lo que hay ahora entre la adquisición y la visualización de datos.
+Es muy importante, pero no sé dónde colocarlo, no sé colocarlos y en la quisición, sin visualización, porque está en todo, está un poco en todo, como preparar esos datos.
+Entonces, damos el salto a la parte de visualización, que es, digamos, un poco como la parte de la L, de cargar los datos.
+Bueno, ya tengo los datos en un formato que a mí me agrada, que es como yo los gestiono, y ahora quiero verlos.
+Esta es la parte de mi módulo, el verlos datos.
+La parte de Alejandro es predecir los datos.
+Mi parte es de lo que hay, ver.
+Esto me vale para ver.
+Para comentar aquí, Guillermo, lo de Rami, que es una pache cafca, entiendo que mono, mono, mono, no, o sea, una aplicación de imácil de escritorio, pero parece como que lo estoy insultando, no, es una aplicación para un servidor, ¿no? Y la idea es justo eso, leer de sensores y tener los datos disponibles separados de los sensores.
+O sea, los clientes ya no van a ir a los sensores a leer, van a ir a un programa que está capacitado para recibir muchas peticiones y servir los datos.
+Como las bases de datos, pero con matíces.
+Bueno, entonces, adquisición de datos.
+Bien, aquí el programa principal que vamos a ver se llama Power BI.
+Es de Microsoft.
+A mí, general, no soy muy partidario de nombrar programas específicos, porque esto es una moda y hoy está in mañana, no está.
+Entonces, Power BI es la oferta que hace Microsoft, tiene una versión gratuita que nos llega, los datos están en local o son públicos, no se pueden compartir de manera privada, después compartir de manera pública.
+¿Y si quieres tenerlos de manera privada? Entonces, ¿para esta vez la diferencia? Power BI es una alternativa y la otra alternativa es Tableau.
+Son dos programas que hacen lo mismo de maneras distintas.
+La filosofía es la misma, tienen un repositorio público en el que tú pones tus datos y son públicos, a no sé qué pagues, entonces son repositorios privados, pati, la idea es la misma.
+Y los dos tienen la misma filosofía, que es ser capaz de tomar decisiones base a los datos que tengas.
+No es como la parte de Alejandro de que te dice, mañana el uribu va a estar a tanto.
+No es esto, te pone los datos de ahora hacia el pasado y tú estimas, tu talento, tu habilidad estimas.
+Así no es el alternativa, pero a ver lo mejor.
+Super set.
+Pues la verdad es, porque me quieres una, pero no lo leería sin diagón a algún momento.
+Ventajas de Power BI, Power BI es un Excel superbitaminado.
+Te permite hacer unas gráficas muy potentes, como las de Excel, pero que tienen un componente de interrelación de unas gráficas con otras y de interacción en la propia gráfica, nunca visto saltes.
+Tú en este puedes hacer una gráfica y es muy bonita y si lo haces bien, incluso puedes cambiar los datos y que la gráfica se actualice sola.
+En Excel está bien.
+Pero en Power BI es un paso más adelante.
+Entonces tú puedes tener las ventas de todas tus tiendas en España, con una gráfica de barras y si pinchas en y aparte de esa gráfica, yo que sé, la cantidad de unidades de este producto que se han vendido en las tiendas y cuánto margen de beneficio, que se nos en un montón de datos.
+Y cuando pinchas en una tienda en concreto, todos los otros gráficos de ese cuadro de mando, que se llama, de esa ventana que tienes ahí, se adaptan sólo al que tú has seleccionado.
+Es una especie como de interruttores.
+Pero esta tienda en el mes de enero, porque lo elige en distintas gráficas, esta tienda en enero y todos los gráficos se adaptan a los datos que te muestra, pero sólo tendiendo a esa gráfica, perdón, a esa tienda y a ese mesa.
+Bueno, entonces es brutal, porque esto en Excel está en los luz.
+Es tus hijos es Arces, y coges Excel y lo combinas, tendrías algo parecido, una cosa rara.
+El vídeo de Power BI os lo recomiendo, porque está bien, están los pasos, vamos a verlo así muy por encima, pero en el vídeo se ve fantástico, ¿no? Es lo que, pero antes de ver el vídeo, no entendemos un momentito a la luz.
+Estoy quedando aquí a oscuras.
+Antes de ver el vídeo, me gustaría comentaros, veras y por encima, esto nos colguía aquí de Excel y un vídeo que os conté aquí.
+Esto está sacado de ofilmática de ciclo medio.
+Yo sé que es algo muy sencillo, que está alcanza de cualquier usuario, no es ningún problema.
+Pero sí que a lo largo de los cursos he visto que lo que es difícil, lo que les resulta difícil la gente, es pensar en cómo va a ser la gráfica.
+Me cuesta horrores, horrores, que alguien dibuje una gráfica a mano.
+O sea, de cada 10 personas que se lo pido, 9, me hacen como mucho la típica L de la gráfica y una sierra.
+Así, no me ponen valores, no me ponen categorías, no me ponen.
+
+
+Bueno, sería algo así.
+Eso es tu cabeza funciona, pero cuando tienes que hacer una gráfica, tienes que preparar los datos para que se adapte a esa gráfica que tú quieres.
+Entonces, los datos te los tienes que.
+
+
+Un poco en tu cabeza inventa y imaginarte cómo sería la gráfica de que vas a hacer.
+Esto es bueno.
+Bueno, tengo aquí una base de datos, o sea una base de datos.
+Un excel que es como tiene la mayoría de las empresas, los datos de su organización, es un excel inmetado de datos personales de 122 personas, totalmente inmetados.
+Aquí podemos encontrar nombre, apellidos, dirección, sexo, número de hijos, etcétera.
+Yo sé que con Alejandro, habéis estado haciendo cosas de este estilo, ¿no? Os da un dataset y tenéis que preparar el dataset en un proceso muy fiquido, el pre-procesamiento, no sé cómo lo llama.
+Pues esto en ofimáticas igual, por ejemplo, tenemos aquí el número de hijos.
+No sé si.
+
+
+Tenemos aquí el número de hijos.
+Esta persona cuántos hijos tiene, uno.
+Esta persona cuántos hijos tiene, cero.
+Y esta persona cuántos hijos tiene, no lo sabemos.
+Bueno, pues mira, si tienes claro la gráfica que quieres, es como saber dónde quiere decir debacaciones y empezar a buscar vuelos.
+Lo tienes todo ganado, ¿vale? ¿Tienes la mitad de la batalla ganada? Si no sabes dónde quiere decir y te dedicas a ir a Sky Scanner a ver si hay algo, pues escuchar el fin de semana, el ordenador que vas a quedar en el mismo sitio.
+Entonces, hacer la gráfica es fácil cuando hay uno o dos ejes, pero cuando hay más ejes la cosa ya se empieza a tosten.
+Ahora os ponen un ejemplo.
+Esto en los hijos.
+Aquí veo que tiene la profesión, este es administrativo, desde el diante y este que es tan paro.
+Es en alfabeto que es, pues no lo, es simplemente que no lo sabemos.
+Pues en esa parte de pre procesamiento que tiene un nombre así muy rinbombante, básicamente consiste en decir con estos datos que no tenemos controlado, ¿qué hacemos? Los procesamos, no lo procesamos, le damos un valor que se nos ocurra y esto es un poco el talento de la persona.
+Ahora estamos todo con una moda muy grande de IA, de todo lo resuelve la IA y todo total y ayudamos Mogul, ayudamos mucho.
+Pero aún sigue haciendo falta el talento de la persona para hacer las preguntas adecuadas y recoger esa información que te da y ordenarla o adaptarla a tu situación exacta.
+El sal que es escribir cuatro líneas en un prompt y que te va a dar una solución perfecta si piensas esos que tu problema es muy sencillo, es de cuatro líneas.
+Es muy sencillo.
+Un problema grande no te lo resuelve ninguna IA así de golpe.
+Entonces, la parte de pre procesamiento hay que pensar ¿qué vamos a hacer con estos datos? Con estos datos que no aparecen.
+Ahorros, esta persona tiene ahorros o no tiene ahorros o no lo sabemos.
+Todos estos datos, todos estos datos que hay aquí hay que gestionar.
+Esta es la parte de que estoy comentando de transformación de los datos, simplemente adaptarlos a nuestro resultado.
+El sexo, estado civil, número de hijos, nada.
+Por ejemplo, una cosa en ciclo medio, en ofimática de ciclo medio.
+Ustedes las preguntas que le hacían el examen, que quería una gráfica de gente que viviera en pisos altos y cuantas gente vive en pisos altos contra gente que vivan en pisos bajos.
+De tercero para abajo, es pisos bajo y de cuarto para arriba es pisos altos.
+Quiero una gráfica en la que yo pueda estimar solo con la gráfica porque yo soy el jefe de la empresa y quiero solo con una gráfica tomar una decisión.
+No quiero que me sueltes todos los datos de la base de datos con donde vive cada uno.
+Como las típicas estas de los resultados electorales, como así, quesitos o barras o la gráfica que se te ocurra, dibujame la gráfica que se te ocurra de cómo sería.
+Pues hacerla de muchas cosas, ya suena una pista de quesito, estaría bastante bien, darta, barras, columnas, montón de tipos de gráficas.
+Hay que pensarla, hay que pensarla.
+Y hay que preparar los datos, fijaros que yo para eso que me piden mis alumnos de ciclo medio para esa pregunta solo tenían estos datos, solo tenían estos datos.
+Esto es un cuadro de texto.
+Aquí estaba y de aquí se tenían que buscar la vida para conseguirme esa gráfica.
+No era trivial, no era sencilla.
+Aquí había como tres casos.
+Había gente que vivía en casas.
+Hay gente que vivía en casas.
+Gente que vivía.
+Había tres casos raros.
+Este ejemplo puede ser un caso raro, pero había gente que vivía en casas y había gente que vivía en pisos, pero fijaros.
+No es brutal, pisos puertas, no es una cosa rara de Cataluña.
+Antes de poder hacer la gráfica, había que tratar estos datos.
+Había que tratarles.
+Había que ver qué patrones seguían para juntarme para obtener el piso que no era trivial.
+Siempre es el último número que encuentras.
+Buscas la coma, buscas la coma con una función de estas de este y te quedas con la parte derecha.
+Esto es un punto kilométrico o un portal.
+Esto también es un punto kilométrico o un portal.
+Esto sí es un piso, pero va con la r y el punto, esto molesta mucho.
+Esto es un piso.
+Esto es un piso.
+Os dais cuenta.
+La transformación de los datos no era trivial.
+No era trivial, te quería toquetear.
+Entonces, si bien hacer la gráfica, mola, ¿por qué mola? Tu venías aquí y decía si yo quiero, yo quiero una gráfica que me ponga altos y bajos.
+Y aquí que me ponga pues 30, son altos y 55 son bajos.
+Yo quiero una gráfica como esta.
+Los datos de mi gráfica los voy a sacar de aquí.
+Yo la he hecho así, pero a lo mejor también podíamos haber hecho altos, bajos y lo mismo.
+Por aquí 30 y aquí 50 no hay ningún problema, pero lo quería tener en forma de tabla.
+No sé si os de cueta.
+Primero, me imagino la gráfica que quiero, quiero 2 columnas.
+Una que ponga altos y otra que ponga bajos y que el alto de la columna sea la cantidad de gente que sea.
+Vale, pues estará aparte de transformación.
+Hay infinitas posibilidades para transformar los datos, pero ya habéis visto aquí una que parece super sercilla y era una cosa muy difícil.
+Cuando tienes un tiempo limitado para hacerlo es difícil.
+Con XGPT esto es más fácil, mucho más fácil, pero es que hay muchos casos especiales.
+No sé, el mejor le puedes copiar toda la columna y preguntásel, pero tiene mira, tiene chicha.
+Por cual, ahora tengo un momento que llamo.
+Lo he dicho, las gráficas, vamos a poner que quiero estar.
+Si yo quiero hacer una gráfica tengo que tener claro que son las séries.
+Esto es muy importante, las séries.
+¿Qué son las séries? Si en un mismo punto de la gráfica hay solo un valor, imaginaros la típica gráfica de las acciones, de la bolsa, que es una típica sierra.
+Si yo me sitúa en un punto de de eje, en un punto de eje X, la doce de la mañana y subo para arriba solo tengo un valor.
+Eso significa que solo hay una serie.
+Si yo me pongo las doce de la mañana y subo para arriba y encuentro una sierra y otro cacho de sierra, dos sierra así que se cruzaba ni tal, entonces tengo dos seres.
+No pasa nada.
+Aquí por ejemplo, si me le imagino con mis dos columnas de altos y bajos, si yo le juo las dos altos o bajos, solo tengo un valor de esa categoría.
+Entonces solo tengo una serie.
+Luego en este pero lo podría hacer en libre ofy lo podría hacer en poco viaj en lo que sea.
+Aquí insertaría una gráfica, una gráfica de columnas, lo que le hace un pequeño.
+Insertaría una gráfica de columnas, me iría a seleccionar datos y aquí es donde yo iría añadiendo las series, no? Seria es aquí está, solo tengo una serie de dicho, me pregunta el nombre de la serie, pues yo me voy a poner bajos de sus altos.
+Y me preguntan los valores de la serie, los valores de la serie, pues son estos, 30 y 50, los valores, lo que va dentro de la gráfica, dentro de la gráfica, solo van números, siempre, solo van números.
+Cuanto cuesta, cuánto hay, solo números, no va nada más que no sean números.
+Yo me toquí el 30, 50.
+Y otra cosa que hay que poner son las categorías.
+Las categorías son comunes a todos los elementos que pongas aquí en la gráfica, por eso tienen su bloque aparte, quien guarde uno, dos, le dedita y elijo de las categorías.
+Altos y bajos.
+Yo con este gráfico ya puedo decidir lo que sea, ya sé que cantidad de clientes o de registros en mis bases de datos viven en un piso bajo, o que yo considero bajo o en un piso alto.
+Oye, sin lugar de haber puesto los datos, lo subiera puesto así, la idea es exactamente la misma.
+Hacer, y excepto una gráfica, y, de nuevo, aquí a seleccionar los datos, agrego una única serie, altos, bajos, y se van.
+De donde están los valores, en este caso están aquí, y le digo donde están las categorías, en este caso están aquí.
+Bueno, fijaros que son la misma gráfica, exactamente la misma gráfica.
+Pero tengo los datos representados de manera.
+
+
+No sé cómo se llama, trans, trans, poner, o no sé cómo se llama este matriz.
+Entonces, es muy importante tener claro qué gráfica vas a hacer, qué datos necesitas y después calcular estos datos.
+Esto es muy muy difícil, muy.
+
+
+puede parecer sencillo pero es muy difícil.
+Vamos a pensar en una gráfica, en una gráfica en la que se vea, lo que sé, la altura, creo que tengo.
+
+
+La altura de los hombres y de las mujeres.
+Una gráfica para la altura de los hombres y otra gráfica para las mujeres.
+Tendría que pensarlo.
+Veo el estado civil, pues me gustaría una gráfica en la que se viera.
+El estado civil de hombres y mujeres por población.
+No está la población, está por ahí en la bula.
+Me quiero ir a una ciudad donde haya muchas mujeres casadas.
+Quiero una gráfica en la que se vea, el estado civil de los que viven en esa ciudad para yo irme a donde haya, por no sé, más hombres, solteros o más hombres.
+Diborciados o más mujeres, violas, yo que sé, lo que sea.
+O sea, pues esta gráfica que ya incluye tres cositas, igual no está en sencilla.
+¿Cómo la dibujarías? Pero bien, o sea, contactos inventados.
+Te puedes inventar que hay diez, solteros y 11 violas y lo.
+
+
+Tror puedes inventar.
+¿Cómo la dibujas? Aquí es donde mucha gente puede petar, porque si no tienes claro la gráfica que quieres hacer, si no tienes claro la gráfica que quieres hacer y le pones unos datos de mentira de prueba, si no tienes esto en mente, no puedes diseñar estos datos que te hacen falta.
+Y si no diseñar los datos que hacen falta, ellos nunca más poder conseguir esta tabla.
+Cuando las cosas son triviales, todo el mundo vive muy feliz.
+Pero cuando ya hay más de tres categorías, estado civil, sexo y población, todo en la misma gráfica.
+No quiero casados y todas las ciudades.
+Solteros y todas las ciudades.
+No quiero una gráfica donde se vea todo.
+Pues ahí.
+
+
+Noto problemas.
+Entonces yo muchas veces, cuando hacia esto les obligaba a los alumnos a que hicieran casi casi contar con los deditos, cuantos solteros habían hombres en Barcelona.
+¿Cuántos son los solteros habían en Barcelona? Y tenían que buscarse la vida.
+Pues ordenaban por población, ordenaban por sexo y entonces contaban, contaban, contaban.
+Y después les pedía que me hicieran algo como esto.
+Que me hicieran algo como esto.
+Barcelona, Madrid, Valencia.
+
+
+No, Zaragoza, no me acuerdo con la tasa de esa vida.
+Y aquí soltero, lludo, trazado.
+
+
+Todos los Estados Unidos que viven en escribir.
+Y en el hueco que buscaran una fórmula de este, lo que contaran a mano, me da igual lo que sea.
+Para completar esto, pues aquí hay diez.
+
+
+Ah, y me falta lo de hombres y mujeres.
+Me falta lo de los hombres y mujeres.
+Entonces probablemente aquí sería hombre, hombre, hombre y aquí mujer, mujer, mujer, soltera, viuda.
+
+
+Bueno, ahora voy a decir.
+
+
+Viuida, casada, soltera.
+
+
+Bueno, aquí ya hay tres categorías.
+Hombre solteros, pues ahí diez hombres solteros, hay tres mujeres, viuidas.
+
+
+Bueno, que fueran completando todo esto.
+A medida que avanzamos en el curso de este, pues yo les he enseñado a utilizar las funciones de buscar ube, índice, coincidir, contar, contar si, contar sin conjunto.
+Bueno, hay muchas funciones de manera que te automatizaban esto.
+Y había unos pocos supervivientes que lo conseguían.
+Y cuando lo conseguían, cuando lo conseguían, le decía, pues mira, este tiene una herramienta que te ayuda a hacer esto de manera automática, que es las tablas dinámicas, que es esto que hiciste tú aquí a mano, con mucho sufrimiento, viendo todos los posibles valores de la población, todos los posibles valores de viuido, pues ahí hay fórmulas que te las dan, y no fórmula que introdujeron hace poco, únicos, únicos que le da a ser la raíz donde están los datos, pues este.
+Y te devuelven los valores únicos.
+
+
+Hay funciones, ¿no? Pero cuando no sabes tienes que hacerlo con el dedito y ir recorriendo.
+Entonces, a medida que aprendías funciones y aprendías cosas, después llegó un momento en que te decía, me la te voy a dar un truco, pero no solo digas a nadie.
+Si tú seleccionas los datos, insertas una cosa que llaman aquí, tablas dinámica, tablas dinámica.
+Cuando tú ya has hecho muchas tablas de estas a mano, esto ya lo sabes manejar.
+Cuando no has hecho muchas de estas tablas a mano, vas a lo loco y como esto es como un caballo, tú le dices por aquí y te va por aquí sin cuestión de arte nada, pues te salen datos y te crees que sus datos son buenos, pero no.
+Entonces, aquí lo que hacíamos era población, donde tenía población, no tenía aquí lombas, lona, en las filas, ¿no? Todas las filas era una población distinta, bueno, pues si tú arrastras población aquí, donde pone filas, te va a poner todos los distintos valores de población, como el único, es este que hice, ¿qué había en las columnas? Las columnas había dos cosas, por un lado había sexo y por otro lado había estado civil, no, no, tenemos sexo, lo meto en las columnas, entonces va a poner en columnas todos los posibles valores de sexo, que tradicional, solo hay hombre mujer, ¿no? Pues aquí hombre mujer y bueno, nos pones total, esto lo podemos quitar, pero es que dentro de lo que habíamos diseñado, dentro de hombre y dentro de mujer también había el estado civil, entonces me voy al estado civil y lo pongo, lo he puesto por debajo, ¿no? Hombre está arriba y esto sí por debajo y me pone todos los posibles valores de todos los posibles estados sexos, ¿ perdón? Entonces, todos los hombres me pone todos los posibles estados civiles que tiene, de todas las mujeres me pone todos los posibles valores que tiene, esto que a mí ya me hubiera llevado un rato a hacer lo humano, porque tendría que ordenar la columna, buscar, no sé qué es, poco conyazo, la tabla dinámica me lo hace solo, y aquí tengo que poner los datos numéricos, aquí sólo van números, sólo número, ¿cómo hago? Pues aquí hay funciones de agrupación, aquí hay valores, que es donde voy a poner los datos, aquí hay funciones de agrupación, hay unas que son el máximo, que requiere números, otras que es mínimo, que requiere números, otras que es sumar, que requiere números, pero hay otras que son, por ejemplo, contad, ¿qué vale texto también? Porque cuenta apariciones, digamos, entonces en contar puedo realmente meter lo que me dé la gana, pongo el id, el nombre, lo que sea, sé que el id es único, pues me aseguro que no hay problema, le doy al id, suma de id, no quiero sumar el dnid de la gente, lo que quiero es contar, ¿cuentos? Entonces tengo, ya tengo aquí todos los datos, todos los datos de la gráfica que yo me he imaginado en donde abajo me pone hombre, y casado, soltero, vio, donde no sé qué, y los valores, mujer, y los valores, ya sé la gráfica, esta, y se le da con los datos también, con los datos, ¿cómo hago? Se lece más datos, voy a agregar una serie, en la que voy a poner, no se va a mover mal, vale, que es que es que es que es que, valores, aquí tengo que decir, ¿qué gráfica quiero? Vale, tengo que imaginarme, que si pincho en una línea, que, quedato, quedato voy a mostrar, entonces, pues yo creo que voy a mostrar en cada línea los de cada cilón, por ejemplo, entonces voy a tener todas estas series, pues voy con la primera serie, los de Barcelona, en el que aquí los valores de esta serie son los estos, estoy cogiendo el general también, podía quitarlo, ya tengo una serie, estos son todos los de Barcelona, voy a meter otra serie más, pues en lugar de que sé que se le voy a poner el nombre, esto y sus valores, vale, voy a poner el XX, y voy a hacer un ramás solo, y ya iba, el nombre de la serie es J, y los valores van a ser todos estos, vale, y las categorías que son comunes, las categorías, son todas estas, vale, y aquí tengo mi gráfica, no es la más bonita, es como me la he imaginado, ¿no? Hombre es por un lado, mujeres por otro lado, y si pudiera meter una leyenda, no no me acuerdo que era cada color, pero estos son los de Barcelona, estos son los de Llorona, estos son los de Jay, si estuviera buscando, esto es total, a ver, solteros, solteros, estos son los totales, la verdad es que los deberían ver, ¿no? pero si estoy buscando un pico de águas, no sé que son los, esta serie, no sé qué es, pues aquí hay un data, ¿no? Entonces, a lo que voy es hacer las gráficas es muy fácil, muy fácil, lo difícil es, imaginarse la gráfica que tú quieres, donde se vean los datos que hay que mostrar, y preparar los datos para hacerlo, yo el problema que vi, que lo vi en XX, y lo veo en Power BI, es que como hay montón de cosas, la gráfica está fuera, ¿vale? ¿Cómo hay un montón de cosas que te hace el programa solo? Normalmente la gente tiene las expectativas de que, bueno, va a ser capaz de arrastrar esto aquí, y esto aquí, y esto aquí, y como siempre te salen datos, porque él hace lo que, lo que tú le digas, como siempre te salen datos, cuando lo voy a hacer, y si te salen datos, cuando ves que te sale algo medianamente digno, pues allá la líago, verdísima, ya no sé ni qué esté haciendo, esto por ejemplo, yo no tengo ni idea de que hay aquí, no tengo ni idea de estos datos que me están representando, pero como parece algo, yo lo deí por bueno, esto es un error, por entonces antes de manejar Power BI, o sea no te puedes poner cuando soy un Ferrari sin saber conducir, antes de meterte con Power BI, deberías tener muy claro, deberías tener experiencia en las gráficas de XX, porque es la base, ¿no? Bueno, dicho esto, ¿cuál es la potencia de Power BI? Si a mí me mandan hacer una gráfica sobre estos datos, yo la hago y lo entrego, pero si estos datos cambian cada día o cada hora o cada poco, eso requiere de que yo esté nuevamente reaciendo cosas, ¿no? Bueno, porque para buscar aquí el número de piso, he tenido que hacer cosas, he tenido que, al mejor crear nuevas columnas y manejar los datos, transformar los datos, ese proceso, tener que hacerlo una vez, otra vez, otra vez, otra vez, es muy lioso, si vosotros alguna vez habéis descarrado un PDF de unas listas, de oposiciones o de contratación o de lo que sea, la vez que estás gestionando esas listas para buscar te a ti o algún conocido, es un trabajo que invierte, es duro, pero que merece la pena, ahora imagínate que tu trabajo es tener que hacer eso cada hora, es duro, entonces ahí, ahí es cuando, ahí es cuando llega Power BI, bueno, Power BI, insisto, si no tienes controlado Excel, Power BI, no, no, no te vale, no te vale, entonces, ahora comiendo mucho, mucho, mucho, mucho que, que chis un ojo al vídeo, porque está bastante bien, ¿no? Y están los pasos, paso a paso, siguiente, siguiente, lo que hay que hacer.
+Bueno, en el vídeo, de lo que se trata, datos, avi, aviertos con los que le apayamos, bueno, ahí, en la página de datos abiertos del gobierno de España, de algún ministerio, hay un, hay un catalogo que te actualiza cada hora, los precios con, de los combustibles de todas las estaciones de servicio de España, cada hora se actualiza, entonces, como veis aquí hay un montón de recursos, a los acordáis del CK, de lápido del CK, hay un montón de recursos que te permite descargar ese documento en distintos formatos, ¿vale? XLS, este se huye, lo que sea, pues aquí, para descontro, no, precio y carbulantes, hay aquí un XLS, perfecto, pues no hay descargar este.
+Entonces, esto, programando, hubiéramos tenido que acceder a este recurso, ver la URL que nos ofrecí y descargar un recueste de esto.
+Bueno, y aquí hay de hoy, 19 del 5 a las 21, es la 21, en 19 42, a cargos cada hora, de las 21, esto es el precio de los combustibles que hay a las 9.
+Entonces, partimos de este documento, en ofimática, por ejemplo, aquí lo que hacemos es un pequeño buscador, con las propias herramientas del Excel, hacemos un buscador y nos cargábamos estas tres líneas que no valen de nada, y son como cabeceras que están siempre ahí, que nos molestaban y solo queríamos los datos bonitos y esas tres líneas las borramos.
+Al final acabamos haciendo una macro que cada vez que actualizábamos, cada vez que se descargaba esta página, borrava las líneas.
+Pero gestionamos muchos datos, hay la práctica de Power BI, una de las cosas que hay la práctica de Power BI, que no estribuye tampoco, es por ejemplo, con las fechas de apertura, tipo de servicio.
+Aquí veis las fechas de apertura, no sé si lo veis, es por lo que sí.
+Un humano entiende esto perfectamente, pero programar para consultar si esta estación del servicio está abierta a las 8 de la tarde, de un martes edificio.
+No es una cosa trivial, quiero hacer una función, un algo que yo le paso cualquiera de estas celdas de aquí, le digo martes a las 8, y que me digas si está abierta o no.
+Lo fijaros que hay aquí del un esadomingo, del un esadabado domingo, del un esadabado, el domingo no está entiendo que no abre.
+Bueno, hay un montón de casos, entonces no es trivial, no es sencillo.
+Entonces, ¿por favor, BI? ¿Por favor, BI? Por favor, BI, es un excel mezclado con un acceso.
+Entonces hay conceptos de uno y de otro, para quien no conozca acceso es la base de datos de microso malísima, local, pero suficiente para aprender.
+Y como tal las bases de datos tiene su apartado de consultas, tú haces una consulta en Arc, si es un cualquiera va a ser de datos y lo que obtienes es una vista de esos datos, pues quieres seleccionar los datos que cumplen unas determinadas condiciones que te lo muestre.
+Entonces, ¿véis una nueva tabla con esos datos? Es una copia de esos datos.
+Pues aquí en Pogorbia hay que hacer cosas parecidas, puedes hacer consultas a esos datos que te generan como unas hojas nuevas, donde están esos datos.
+Y como en las consultas, tú puedes filtrar y también puedes transformar un poco los datos.
+Dezá aplicarles a una trasformación.
+Cosas que hay en Pogorbia, entramos en Pogorbia hay un archivo nuevo y vemos esta zona de trabajo.
+Tenemos aquí una colonilla, tenemos aquí abajo la vista monitor y la vista móvil, esto te hace diseños para ver en formato en otro.
+Tenemos aquí distintas páginas y tenemos aquí una zona de trabajo.
+Esta zona de trabajo sirve para crear nosotros los gráficos interactivos que vamos a utilizar.
+Y esto se le conoce como.
+
+
+Así que cuando él le controla el dashboard, tiene otro nombre que es Aldrá.
+Tiene un cuadro de mando.
+Un cuadro de mando se le llama.
+Es un nomeno un poco freaky, pero un cuadro de mando es donde nosotros tenemos los distintos indicadores en las distintas gráficas para nosotros tomar las decisiones.
+Como en un avión, que veis los abujan las historias y tú tomas la decisión.
+Y aquí una parte de propiedades para los gráficos que se van a usar.
+Antes de nada, en el documento SPOMO que lo primero que tenéis que hacer es veniros por opciones y configuración, opciones, pienso que es, y activarlo de los mapas.
+A ver si me sale.
+Privacidad aquí en la parte global, no, privacidad no.
+Seguridad, seguridad.
+Aquí activar esto.
+Uso de los elementos visuales de mapa y mapa corruplético.
+Esto es básicamente que actualizas, permite al programa que gestione ubicaciones.
+El poder efecto está desactivado, pero al activar esto cuando tú utilizas un gráfico de estos de mapa, si quieres permite localizarte para ponerte en el mapa.
+En esto, en la gestación de las gasolineras, pues, gracias, que te ubique en el mapa y que te pongan las gasolineras de tu zona.
+Por tema de seguridad, privacidad de los datos, bien desactivado, pues lo ponemos, o cuesta nada y mola.
+Bien, lo primero es decirle dónde están los datos.
+Por eso tenemos aquí un obtener datos, hay montón de cosas donde podemos obtener los datos, de un excel, de otro power BI, de una base de datos, de un montón de historias, de CSEUV y un montón más que siguen 3 por aquí.
+De ese montón de categorías, no sé por ahí, o sea, algo que nos suene.
+Vizquery es una base de datos, base de Google, tenemos aquí el Mongo, bueno, un montón de historias.
+Nosotros vamos a obtenerlos directamente desde el agua, haciendo un poco de web scraping.
+Si tengo aquí, si puedo obtener el hogar, si tengo aquí la de la acción.
+Vale, esto no tiene nada, esto se va a la URL que le diga si te descarga lo que hay ahí esperando que sea una cosa descargable.
+Si va todo bien, ahí están los datos.
+Pues esto es Power BI.
+Ahora, esto es la parte de extracción de datos.
+Ahora entramos en la parte de transformación de los datos.
+Se encarga un subprograma dentro del Power BI que se llama Power Query, que debería lanzarse solo ahí está.
+Este es Power Query, este es el excel, digamos, ¿no? Y ahí vemos algo que nos suena mucho, una cosa como Excel, con su barra de fórmulas donde tú podías escribir, funcionan las de excel, pero aquí tienen un lenguaje diferente, no es como Excel, aquí es un lenguaje que se llama DAX, que la gente que se cotiza en Power BI para estas cosas sabe DAX, sabe este lenguaje de programación, los que hay, no sé, del orden de 150 funciones, pues como las de excel, que hacen cosas muy concretas.
+Bueno, la gente que sabe Power BI sabe DAX, si esta parte de ti interesa hay que formarse en eso.
+¿Cuál es la parte buena de este Power Query que aquí podemos nosotros hacer un montón de cosas, un montón de historias? Pero todas las cosas que vayamos haciendo van a quedar aquí guardadas en pasos aplicados.
+Vís que ya hay algunas, origen de los datos, hemos ido a una página web, se han convertido en una tabla, porque a lo mejor no es muy bien.
+Y se han hecho una serie de cosas, en automático, todas las que nosotros hagamos a continuación, se van a quedar aquí guardadas.
+Una muy sencilla es lista SSP100CPL, el código postal, esto es un nombre un poco grave, pero un código postal, pues lo voy a cambiar.
+Otro derecho, cambiar nombre, voy a poner un código postal, es una de las líneas que os pido que hagas.
+Lo cambio me queda el código postal y fijaros que columnas con nombre cambiado, esto se han memorizado.
+¿Cuál es la ventaja de esto? Que si esto cambiara entre denora como va a cambiar, yo solamente tengo que decirle, repite los pasos.
+Y me va a cambiar el nombre de la cabecera, solo, el sol, a golpe de rato, está parte en mola mucho.
+Tienes que tratar un excel, solo una vez, tienes que tratar un excel cada hora.
+O dar informes sobre unos datos que te vienen en excel, lo maneras muy fea, tienes que tratarlos, tienes que averiguar, quién vive en un tercero menos, en un cuarto o más, tienes que hacer unas hili de cosas y darnos una gráfica.
+Pues si esto tienes que hacerlo muchas veces, poder ver ahí es la leche.
+Esto no se puede hacer con excel, pero tienes que saber programar macros.
+Aquí lo puedes hacer con ratón y ya super poderes si sabes tax.
+Más cosas que vamos a hacer, por ejemplo, el tipo de datos de una columna, que en excel no se veía claro, se puede hacer, pero no se veía claro, hasta que aplicabas filtros.
+Aquí los filtros se aplican según el tipo de datos.
+Esta columna, como solo venían números, poder ver ahí determinó que es de tipo numérico.
+Véis aquí los numeritos, estos, no? Estos de tipo texto, estos de tipo fecha, biselcalendario, el icono es bastante representativo.
+La ventaja de esto es que si el tipo de datos está bien determinado, los filtros que te ofrece para poder manipular un poco los datos y transformarlos, son muy acertados.
+Los filtros de fecha y hora incluyen cosas como el más antiguo, el más reciente, el trimestre, entre dos fechas, teriora determinada fecha.
+Temas de fechas, lo gestiona muy bien.
+¿Cuál es el siguiente al 29 de mayo? Y el siguiente al 30 de mayo, ahí 31, un mayo.
+O sea, todas estas cosas de fechas que son muy liosos, si lo tienes bien como tipo de datos de fecha, te soluciono un montón.
+Fecha, lo dejo, código postal, código postal me lo detecta como número.
+Normalmente los números deberíamos dejar números cuando tenemos incención de utilizarlos matemáticamente, para llar la media, para asumarlos, para ver cual es el máximo, para cosas así de este estilo.
+Yo nunca voy a sumar un código postal con otro, ni voy a llar la media de los códigos postal.
+Para un tratamiento más sencillo, me gustaría convertirlo a texto.
+Si fuera número, tendría filtros de número de, es igual, no es igual, mayor que, menor que, entre cosas de número.
+Yo lo que voy a hacer va a ser cambiar lo de tipo, entonces, por donde derecho, a que en cambiar tipo, no frecis los datos típicos, lo me decir que es un texto, donde está texto.
+Me cambia el tipo, me lo linea a la izquierda con el texto, a la derecha los números, para que, cuidades con unidad, desde cenas con decenas.
+Y este cambio que he hecho yo, también me lo memorizado aquí, ves que va por orden, que puedo editar cualquiera de los cambios, eliminarlo, o no lo desitio.
+Lo mismo, tireción, aquí tengo el horario que comentamos antes, aquí, si quisiera saber lo que dije antes, que esta acción de servicios está abierta, o martes alas ocho, es muy difícil hacer la consulta aquí.
+Entonces, puedo transformar los datos y hay un montón de herramientas para transformar los datos aquí dentro de Povercoir.
+Claro, si me voy aquí a transformar, hay un montón, por ejemplo, por ejemplo, por ejemplo, por ejemplo, dividir columna, vale, dividir columna, que me va a hacer esto, me va a añadir columnas, según las divisions que hagas, por ejemplo.
+Tengo esto seleccionado, le doy a dividir columna y le digo cómo, cómo quiero dividir esa columna, vale, cada celda de esa columna, cómo la quiero dividir.
+En este caso es por del limitador, porque veo que cuando hay varios días están separados por punto y coma, esto como lo sé, porque me traga los datos y he visto los estudiados, ¿no? punto y coma, punto y coma, en cada aparición del del limitador, vale, pues acepto.
+Entonces fijaros, de horario, me ha creado horario 1, horario 2, horario 3, muchos de ellos están anulo, porque no tenían, sólo tenían rango horario, pero otros que del unes ha sabado, tengo los datos aquí y los del domingo, ya los tengo en otra celda, distinta.
+Vale, sigue siendo necesario más proceso, pero os deis cuenta cómo todo se va simplificado, ¿no? Vea de hacer esto, ¿qué nos vamos a hacer? ¿qué? ¿no? ¿no? Cuidado, ¿no te hayas acabado voripos, realmente? No es algo.
+
+
+Lo dejamos.
+¿Qué más cosas? El principio, los precios, precios, la soluva, precios, la soluva, ve, bueno, aquí tengo todas las cosas.
+Entonces, yo podría hacer una determinada transformación, cargarme columnas, pues a lo mejor, todas estas, el precio de la soluva, ve y el del premio, no me interesa, pues la selimín.
+El liminar, eliminar, eliminar, quitar columnas, quítolas columnas.
+Todo esto me va quedando guardado aquí, ¿no? Entonces, cuando ya tenga una tabla con la transformación que a mí me gusta, lo que hago es guardarla como una consulta, como si pon una consulta de de ese cual.
+Esta vista me va a generar esta tabla, esta otra consulta, esta otra vista me va a generar esta otra tabla, todo partiendo en los mismos datos.
+Puedo tener una consulta solo para los precios de la gasolina, otra consulta solo para los precios del 10, otra consulta para los eléctricos, lo que se os ocurra.
+En la práctica yo creo que solo utilizo una consulta o dos, no lo recuerdo.
+Bueno, en algún momento, yo ya tendré un montón de cosas aquí, ya preparadas, ¿no? Creo que comentaros solo una más porque la comento en el vídeo y a mí me parece muy interesante.
+Fíjaros, en el precio de las gasolinas, en el precio de las gasolinas, para hacer una gráfica, a mí me gustaría que el tipo de las olina, la solidad, la solina 95 y todo esto, no estuviera en la cabecera de la tabla, porque yo en la cabecera no puedo crear una gráfica en donde ponga gasolio A como parte de los datos.
+Yo lo puedo poner como una etiqueta en la leyenda.
+Entonces, ahí meces que a mí me va a interesar tener este gasolio A aquí dentro de la tabla, por lo que sea.
+Bueno, pues hay una opción que es, el nombre muy raro, esto, dinamización de columnas.
+No sé quién le puso el nombre, vale, pero es dinamización de columnas.
+Y esto lo que hace es, si tú le das uno varias columnas, lo que te va a crear es, dos columnas con clave valor.
+La clave será el título de la columna y el valor será su contenido.
+Entonces, esta tabla, el lugar de tener gasolio A aquí arriba, que no es accesible para mí, esto que Zelda es la A1, la B3, ¿qué Zelda es esta? ¿Cómo yo interactúo con esta cena? No puedo.
+Entonces, yo esto lo quiero tener dentro de las celdas, esto de la dinamización de columna, anular o activar, de tener lo que tengas, lo que te va a hacer, va a ser convertir esta columna en parejas de clave valor.
+Es como está gasolio A y los precios.
+Ahora, activo esto, lo desactivo, lo que sea.
+Y fijaros en cómo me la con.
+
+
+Y esto.
+Me la puso al cien.
+Me la he dividido en el tributo valor, pareja clave valor.
+Y como clave me ha puesto en nombre de la columna, la crecera, el tríquio.
+Y como valor, me ha puesto lo que le correspondía.
+Realmente la estructura no ha cambiado mucho, no ha cambiado mucho.
+Simplemente en esa línea, de esa gasolina, pues ahora tengo una columna nueva que pone gasolio A.
+Esto es lo de la dinamización de columna.
+Vamos a hacer y deshace.
+Se vendrá bien, sobre todo cuando estoy pensando en las gráficas.
+Porque en el vídeo me parece que, al final de todo, hago un elemento de la gráfica, en el que pongo los diferentes tipos de combustibles que hay, a según pinche en la columna nueva, 10 en un loque sea, el resto de los gráficos se adecuan a eso.
+¿Cómo yo podía pinchar en gasolina 95 o 10 en la columna? Si no lo tenía dentro de la tal, como valor.
+Como yo podía crear ese contenido, pues lo única manera de crear ese contenido era haciendo esto.
+Ahora ya tengo los datos aquí y ya puedo utilizar este gasolio A dentro del documento que quiera.
+Bueno, cuando yo no tengo todo listo, cierro y aplico.
+Salvo de Pogo, el Cuerri.
+Salvo de Pogo.
+Salvo de Pogo.
+Y todos esos pasos que yo dije quedan grabados en este archivo cada vez que yo refresco los datos de Internet, se aplica.
+Y me queda la tabla como yo la definí en su primer momento.
+Ya no me tengo que preocupar de ver cómo es hacia lo del piso más alto, el piso más bajo, lo que se me ha aplicado todo.
+Ahora llega el momento de la gráfica.
+Solo tengo una consulta, lista modelo.
+Si alguna vez habéis hecho ha habido trabajado con accés, yo creo que con muchos, con mayese cuales, yo creo que tiene esto gráfico también.
+Aquí veis las tablas o las consultas, aquí usó parecería en todas y podría relacionarlas para ir de una otra, integridad referencial, todo el rollo.
+Pues digo que se parece mucho a hacer, como solo tengo una consulta, esto me genera la vista de esa de la tabla, pues no tengo nada más que hacer.
+Entonces me vengo aquí a la tabla.
+Y aquí es donde puedo generar los distintos elementos de la tabla.
+Aquí veis las gráficas típicas que tenemos, los mapas y después hay algunas otras herramientas como selectores y cosas así que se ven bien en el vídeo.
+Pero yo recomiendo que vayáis al mico.
+Hacer una gráfica en nada es muy sencillo, agrupada no.
+Entonces lo ponemos aquí y desde aquí desde los datos tenemos todos los elementos que teníamos, todos estos que tienen en su matórios son números y los del calendario son fechas, el rato se supone que son texto.
+Pues todas esas cosas la vamos a ir agrupando en el eje x y en el eje y.
+¿Cuál es la complicación de esto? Pues lo que os comentaba antes en excel.
+Si tú en excel no eres capaz de previamente aponerte hacer algo, dibujar la gráfica en un papel con datos inventados, la gráfica completa, completo.
+Solteros de Barcelona a 10, pues te haces una columnita de 10.
+Mujeres, viodas de Zamora, 8, pues te haces la gráfica.
+Si tú no eres capaz de hacer esa gráfica con datos inventados, lo haces a ojo, no pones los categorías, no pones los números.
+Si te dejas algo pensando que es muy evidente, muy evidente que igual lo es, pero si te dejas algo es altamente probable que fracases a la hora de arrastrar las cosas a donde corresponden.
+Pues yo que sé, más arrastrando, sobre una cosa, sobre una cosa depende lo que hayas haciendo, no sé ni lo que estoy haciendo, porque no veo lo que estoy arrastrando, pero esto hay que pensarlo previamente.
+Entonces vas arrastrando cosas, fijaros en el vídeo que está en lo de las gasolineras paso a paso, muy sencillo.
+Y vas metiendo cosas en esta ventana, que no te llega, que no te llega a ver otra página, y metes ahí las cosas que necesitas.
+¿Cuál es la ventaja de esto? Me cambió porque la tenía seleccionado, todo que pinta fuera y poné una tarjeta, y aquí voy a poner el código postario.
+Entonces fijaros, código postario, primera fecha código postario, no sé, me está haciendo cosas, pero si yo ahora selecciono esto, veis que me ha cambiado esto, no tengo ni idea lo que estoy haciendo, porque estoy arrastrando cosas, pero lo que me interesa es que veis que esto es como un interruptor, veis que tengo seleccionada una de estas columnas y están las otras un poco difuminadas y esto ha cambiado, porque todas las otras cosas, solo se están calculando en función a esto que tengo seleccionado.
+Y es como un interruptor, lo marco y lo desmarco, ahora marco este y esto cambia en función de lo que sea.
+Cada uno de estos elementos se puede editar individualmente y aquí entramos en esta zona de visualización, que tenemos luego general y los datos grandes que podemos incorporar y aquí tenemos el detall.
+Ya sea todo el tema visual, tipo de letra, leyendas, todo tipo de cosas gráficas, digamos, y con justo esta no tiene.
+Y de datos que se puedan mostrar, si tenéis experiencia en Excel, pues en una gráfica de marras podemos poner una línea de media, por ejemplo, en el medio o de máximo de mínimos, podemos meter cosas extra.
+Todo esto se toquetea aquí, es muy amplio, muy grande, muy desmadrado, entonces, seguir el ejemplo de las grasas ordineras, que son conceptos que todos entendemos.
+Y ahí se ven muchos elementos, vemos el mapa, vemos las gráficas, vemos.
+
+
+¿Dónde está aquí? Este, el medidor, la aguja está quedado mínimo a máximo y podemos configurar el mínimo, pues configurar el máximo y lo que indica, si es un valor, si es la media, si es lo que sea.
+Y yo creo que se ve bien, ¿cuál es el objetivo de esta parte de Power BI? ¿Sabe manejar Power BI? Es imposible que a distancia, en dos meses, en este parcial podamos ver Power BI, porque Power BI sin DAX no es un juguete, que mola mucho, es un juguete.
+Y yo, cuando hagáis la aplicación es a los precios de la gasolina, y podáis verlo en versión móvil o en versión tal, o sea alguien se anima a unirlo con los parquins, la ocupación en tiempo real de los parquins de Vigo, ojo que a golpe de ratón puedes hacer una aplicación super llamativa, ¿vale? Muy, muy, bueno, ¿no sé? ¿Qué luce mucho? Entonces se pueden hacer cosas interesantes, pero utilizar Power BI sin DAX es una fantasía, es una ilusión, estás jugueteando con a golpe de ratón.
+Aquí lo importante es saber hacer transformaciones.
+En Guillermo no me dejaba hacer un triángulo, a B, B, B, B o no, bien me dice, entiendo que me estás hablando de las relaciones.
+Hay que verlas, porque ahí sabes que hay relaciones.
+Ya en Ángeles se podía complicar un poco la cosa, tienen que ser del mismo tipo y después tienen que tener sentido, tienen que tener integridad referencial, no puede haber un hijo sin un padre, ¿vale? No, no, no puede haber que ejemplo sabía concreto, no puede haber detalles de la factura sin tener una factura padre, por ejemplo, o en un alquiler de coches o de libros, el típico ejemplo de biblioteca, pues no puedes hacer un préstamo de un libro que no tienes en el inventario, cosas así, no, no puede haber padre sin hijo.
+Si algo falle no te deja hacer la relación, pues, en el nivel individualmente, todas funcionaban, puede ser cabos y si tú haces un préstamo de un libro que no existe, si no las tienes relacionada, pues el palate, te deja, si las asocias y las indicas que tienes integridad referencial, antes de hacer tu un préstamo de un libro, comprobar que existan el mental, entonces se pueden dar un millón de casos, no me atrevería a dar tonos respuestas y generica.
+Y básicamente es esto, yo, en esta parte, sí que os preguntaré cosas genericas sobre Selenium, sobre Puteful Sub, altamente probable que os ponga un código que problema hay, que hace, mejora lo, que no, o sea, el desamén es escrito, no hay ordenador y no hace falta que me pongáis los parámetros correctos, pero entendemos que si tú eres un productor tienes que poner el Topic y el servidor donde vas a mandar los datos y tienes que saber que los datos son serializados, no, hay una serie de cosas, que es un poco de cultura general y se aplican tanto a los que se pongan, y se aplican tanto a Kafka, como a, pues eso David te comentaba Guillermo y otras aplicaciones.
+Y en esta parte de Pogorbía hay, si hacéis el, por favor, hacer las gasolinas, porque en el cuadro, específicamente en el cuadro es donde, es, pongo aquí un cuadro con los distintos valores de las gasolinas que tenemos, para, para que ese cuadro me muestre los, los nombres de las, de los combustibles, yo tenia que hacer antes, y en esta que tenía el nombre tan raro que convertía la columna en pareja de clave valor, la gracia de convertir la columna en pareja de clave valor es que me está cogiendo el nombre de la cabecera, que ahora era algo inútil, no, no lo podía utilizar de ninguna manera, me lo está metiendo dentro de los datos, y yo puedo contar, por ejemplo, cuantas gasolinas, siren las sonían 95, y lo puedo hacer fácil, contando todas las apariciones de las sonían 95, que antes lo podía hacer contando toda la columna en las sonían 95, pues sí también lo podía hacer así, pero bueno, tiene otra serie de, de ventajas, con cello, con marca, hay que ver, ahí sí que te pediría que me mandara el archivo y lo vemos, pero vamos que no intentéis meterlos en cosas, muy profundas de Power BI, porque hace falta tax, para transformar los datos, tal vez como tengamos los datos de las gasolinas o de los parking, no nos permite mostrar los datos, pues es un poco como lo que se decía de los pisos altos y los pisos bajos, tal como teníamos los datos, yo directamente no te puedo decir cuánta gente vive en un piso bajo y cuánta gente vive en un piso alto, yo como humano sí, pero no te lo puedo hacer en una gráfica programar, hace falta transformar los datos con fórmulas de este, pues aquí puede pasar lo mismo, te cante los datos que tengas, pues, pues se complica, pero no es lo importante, lo importante es que se váis, que tanto Power BI como tablo, es una mezcla entre más edad y este, que te permite automatizar hasta aquí, transformar datos, Power BI, esto para mí, para mí personalmente, esto de los pasos aplicados, es lo que te da vida, yo por ejemplo en el instituto soy el encargado, pero soy el partillo que los claustros de cada trimestre presenta las gráficas de los resultados, las gráficas, chulas que tu tucas, primero de la eso a y si mostran los resultados de los niños de primero de la eso a no enimos todo tal, pero para cada niño se ve una columna en verde las asignaturas que he aprobado en rojo las que ha suspendido entonces, están los 30 años, los 20 niños, los que sea y se ve el nivel de la clase, ¿no? para cada asignatura, pues tengo una gráfica en la que el rojo es un uno y el verde verde es un 10 y todos los 1, 2, 3, 4, 5, 6, 7, 8, 80, miembros colores distintos, entonces, de un vistazo, yo te pongo la gráfica, la hoja, de segundo de la eso y tú ves cuál es el segundo bueno y cuál es el segundo malo, porque en un hay montón de rojos, hay colores muy rojos señal de que se han sacado muchos 2, 3, 4 y en otra la gráfica de los rojos es más pequeña, bueno se ve muy bien solo la golpe de gráfica, entonces eso es un trabajo de muy partido hasta que llegó a mi vida, puedo ver bien, ¿no? entonces a partir de cuando llega a mi vida puedo volver bien, el GFD estudios me manda los resultados y yo lo único que hago, bueno ya lo tenemos, bien pero cuando me mandaba los resultados así un poco en aleatolí, yo cogí aquí de los origen de los datos, me iba aquí a la metanita de esta edita, modificaba el nombre del acívoro que tuviera que hacer, pongo y aplicaba todos los pasos y ya me generaba la gráfica sola, entonces un trabajo que antes era para GFD estudios, de dos días dedicados, porque tenía que hacer un excel y después capturar la ventana, la gráfica, pegarla en un PDF, capturar la PDF, capturar la PDF, pues eso ahora mismo lo presentaba en el proyecto, no hacía el PDF y lo presentaba en el proyecto y iba pulsando en el curso que le interesaba y iba comentando lo que le interesaba.
+Y hemos pasado un trabajo de dos días, a un trabajo de, no se le direce a nadie, pero ahora mismo es un trabajo de diez segundos, porque simplemente actualizar el nombre del archivo y ya casi ni eso, porque ya tenemos el informe predefinido y a tal, eso básicamente ha abriado el PogorbíAi y actualizarle la actualidad, no tiene nada, no se lo digáis, pero lo que estoy diciendo es eso que PogorbíAi me ha facilitado mucho, convertirse esos datos brutos en excel, sacados de la plataforma de la santa, a una cosa que se pueda generar una gráfica y que sonográfica vistosa en la que tú puedes tocar y ver qué ha sido natural la complicada, el año pasado teníamos un alumno que trabajaba con muchas máquinas industriales, quedaba muchos valores y acabó haciendo en esta época que políbre digamos un PogorbíAi para tenerlas manipulizadas y quedó guay, mi se me escapaba porque eran valores que yo no entendía, pero quedó guay, entonces en ese sentido PogorbíAi mola, para cosas potentes hace falta tax, y dejamos mucho de poner ofertas de empleo y cosas así, yo el año pasado había puesto también de PogorbíAi y había un número significativo, no sé si mucho, pero había un número significativo.
+Y parecía interesante, y poco más, no sé si tenéis preguntas, nuevo por aquí, no vamos a ver, o por aquí ningún código para compartir, no, esto igual tiene más sentido, la del jueves de MapRedeos, pues si tenéis algo que queréis probar, y poco más, no sé si el orden del curso fue el más adecuado haciendo balance de todo, no, no sé si esta en la ubicación de la sociedad, no sé capaz, pero si más, es en el del mapa, yo creo que estaba también en el del mapa se ve las, sí, hay un mapa con la posición de las razones, hay que meter lo ojito, y meter lo latitos, metimos atrás, habría que ver el, ya, bueno, hecha lo ojo al vídeo, porque ahí sí que hay en Map, yo creo que están casi todas las gráficas, no, están las típicas de columnas, está el selector, está el medio que sí, todo este está, bueno, y el mapa, lo que puede resultar así más visible, pienso que está bien, si hay algún problema ahí con el mapa, igual no tienes activada la opción, no sé, estoy tirando tiros al aire, igual no tienes activada la opción, está del mapa, pero en principio no, la tal de un raco y, los mapas de los parques de vígos también tienen la atitud y el ojito, igual se podría hacer alguna práctica, a tu ubicación, no la has causado en la avance, ya tu ubicación la verdad es que no sé como, no sé, ya que pensar ahora como meter tu ubicación específicamente, no sé, no sé, no sé, no sé, no sé, no sé, no sé, ¿cómo? bueno, aquí es probar, esto es experiencia, y lo he dicho, no decéis Alex, del ahí un meme que me pasa el año pasado, el que sabe, lo tablo, el que sabe, el que sabe, pre procesamiento de los datos en digdata, no sé qué, y todos son el titánica, así he tocado con flauta, y de repente se escuche un niño cantando, y fantástico como un coro, y dicen los que saben, eso es el la base, la base, si sabes, éxit, el resto es solo mejorar, si no sabes éxit, el resto es mirar un escaparate, no vale de nada.
+y bueno, eso os comentaba que no sé si el orden igual el próximo año hacemos otra vez, porque a dejarlo también la interesa que se vea la parte de adquisición de datos, y la parte de transformación, que la trabaja mucho, yo también la debería trabajar, y la parte de pandas, también hubiera sido bueno que la diralló, una vez capturas los datos desde Viotifundsub, o desde un apio, desde lo que sea, lo que tienes es probablemente una tabla, pues nuevamente volvemos a Exter, porque pandas, si que ya lo habéis trabajado, pandas es un Exter, todas las cosas que podéis hacer con Exter, agrupar, ir a la posición, la fila 2, columna 4, eso son Exter, es un Exter, entonces si tú te mueves cómodamente en una tabla de un Exter, pandas es el equivalente en Python, programando, es muy muy sencillo, Spark que lo vamos a tener que dejar en el tintero, porque fue todo bastante letra, lo demás precios, lo colguetar de, se tardó en hace las prácticas fue de todo así un desbarajuste, Spark es pandas, pero aplicado a Big Data, escalado o horizonta, en pandas tu tomas datos y los procesas y los agrupas y los humas, y haces tus historias con la capacidad de tu ordenador, en cuanto si tú tienes un archivo de 2 gigas, Excel ya no te lo abre, está, eta, rompe, el archivo que os pase de las Mac Bluetooth, no acuerdo cuándo ocupaba, pero vamos el de todo el año, Excel no te lo abre, no te lo abre, porque no tiene capacidad suficiente, entonces lo tienes que tratar con otra cosa, con pandas podrías, porque este no puede, esta limitada a 2 gigas y 16 millones de columnas o decirlo, no me acuerdo, pero pandas sí, pero esta limitada a la capacidad de tu ordenador, si te diera los Bluetooth, toda España, yo crece, no sé, tu ordenador solo no podría, entonces ahí es cuando necesitas Spark, que es pandas, tiene los mismos conceptos, DataFrame, que nos suena, tiene los mismos conceptos, pero ya he distribuido, y se parece mucho a HTML, perdón HTML, a HDFS, porque los DataFrames son inmutables, tú creas un DataFrame y eso queda guardado y no puedes modificar una celda, no puedes modificar nada, si quieres modificar algo, tienes que crear otro DataFrame modificado, y que la fijo es, como un HDFS, no se pueden modificar los archivos, pueden añadir, se pueden añadir, hola, yo cierra, que es, que es muy tarde, no sé, vale, pues, lo he dicho, ya me voy porque me acaban de estar, se quedan tardis, si, si, me salgo por la ventana, no te preocupes, aquí no me quedo, bueno, lo he dicho, si hay alguna duda, por favor, ponerme en el foro, el objetivo de este módulo, nos complica los labidas, simplemente que veáis que hay más herramientas, que todas tienen en común la parte de distribución, que es la que me interesa, de la parte de VITATA, todas son muy parecidas, tienen nombres distintos, pero que valen para eso, para escalador y zontar, capturar datos, casca y poder ver, vale, bueno, no hay tiempo de preguntas, vale, venga, gracias a todos por estar, chacho hasta el jueves, jueves otra, venga.
